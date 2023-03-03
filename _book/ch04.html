@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Bitcoin Onder De Loep - 5&nbsp; Mining</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch05.html" rel="next">
+<link href="./ch03.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Bitcoin Onder De Loep</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inleiding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inleiding</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Wat is bitcoin?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch04.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch08.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Wie bepaalt de regels?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch09.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">What’s next?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch10.html" class="sidebar-item-text sidebar-link">Verder lezen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch11.html" class="sidebar-item-text sidebar-link">Dankwoord</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch12.html" class="sidebar-item-text sidebar-link">Over de auteur</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#hoe-worden-nieuwe-bitcoins-gemaakt" id="toc-hoe-worden-nieuwe-bitcoins-gemaakt" class="nav-link active" data-scroll-target="#hoe-worden-nieuwe-bitcoins-gemaakt"><span class="toc-section-number">5.1</span>  Hoe worden nieuwe bitcoins gemaakt?</a></li>
+  <li><a href="#de-blokbeloning" id="toc-de-blokbeloning" class="nav-link" data-scroll-target="#de-blokbeloning"><span class="toc-section-number">5.2</span>  De blokbeloning</a></li>
+  <li><a href="#de-halvering" id="toc-de-halvering" class="nav-link" data-scroll-target="#de-halvering"><span class="toc-section-number">5.3</span>  De halvering</a></li>
+  <li><a href="#beheersen-van-de-uitgifte-en-het-blokinterval" id="toc-beheersen-van-de-uitgifte-en-het-blokinterval" class="nav-link" data-scroll-target="#beheersen-van-de-uitgifte-en-het-blokinterval"><span class="toc-section-number">5.4</span>  Beheersen van de uitgifte en het blokinterval</a></li>
+  <li><a href="#moeilijkheidsaanpassing-consensus-over-het-doelnummer" id="toc-moeilijkheidsaanpassing-consensus-over-het-doelnummer" class="nav-link" data-scroll-target="#moeilijkheidsaanpassing-consensus-over-het-doelnummer"><span class="toc-section-number">5.5</span>  Moeilijkheidsaanpassing: consensus over het doelnummer</a></li>
+  <li><a href="#hash-rate-en-de-dollarwaarde-van-bitcoin" id="toc-hash-rate-en-de-dollarwaarde-van-bitcoin" class="nav-link" data-scroll-target="#hash-rate-en-de-dollarwaarde-van-bitcoin"><span class="toc-section-number">5.6</span>  Hash-rate en de dollarwaarde van bitcoin</a></li>
+  <li><a href="#vergoedingen-en-het-einde-van-blokbeloning" id="toc-vergoedingen-en-het-einde-van-blokbeloning" class="nav-link" data-scroll-target="#vergoedingen-en-het-einde-van-blokbeloning"><span class="toc-section-number">5.7</span>  Vergoedingen en het einde van blokbeloning</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Meedoen aan de proof-of-work loterij om de mogelijkheid tot het aanpassen van het bitcoin-grootboek te winnen, is beter bekend als <em>minen</em>. Dit is hoe het werkt:</p>
+<ol type="1">
+<li><p>Iedereen die wil deelnemen, sluit zich aan bij het bitcoinnetwerk door hun computer aan te zetten, de juiste bitcoin-software te draaien en te luisteren naar anderen die hun transacties aankondigen.</p></li>
+<li><p>Alice kondigt haar voornemen aan om wat munten naar Bob te sturen. De computers op het netwerk roddelen met elkaar om deze transactie naar iedereen op het netwerk te verspreiden.</p></li>
+<li><p>Alle computers die willen deelnemen aan de loterij starten met het <em>hashen</em> van de transacties waar ze over hebben gehoord door willekeurige <em>nonces</em> toe te voegen aan de transactielijst en de sha256 <em>hash</em>-functie uit te voeren.</p></li>
+<li><p>Gemiddeld elke tien minuten vindt een computer een hash afgeleid van de transacties die lager is dan het huidige doelnummer en wint daarmee de loterij.</p></li>
+<li><p>Deze computer maakt zijn winnende getal bekend, evenals de invoer (transacties en nonce) die ze hebben gebruikt om het winnende lot te produceren. Het kan uren gekost hebben om dat te vinden, of een paar minuten. Deze informatie bij elkaar (transacties, nonce en de hash van het proof-of-work) wordt een <em>blok</em> genoemd.</p></li>
+<li><p>Alle andere deelnemers valideren het blok door te controleren of de transacties in het blok samen met de nonce inderdaad hashen tot wat er gedeeld wordt, dat de hash inderdaad lager is dan het doelnummer, dat het blok geen ongeldige transacties bevat én dat de geschiedenis in het blok niet in strijd is met voorgaande blokken.</p></li>
+<li><p>Iedereen schrijft het blok in zijn kopie van het grootboek en voegt het toe aan de bestaande ketting van blokken, bekend als een <em>blockchain</em>.</p></li>
+</ol>
+<p>Dat is het in een notendop. We hebben ons eerste blok geproduceerd en mogen onze eerste transacties aan onze grootboeken toevoegen.</p>
+<p>Misschien heb je in de media de vaak herhaalde bewering gelezen dat bitcoin mining het oplossen van ingewikkelde vergelijkingen inhoudt. Nu zul je begrijpen dat dit volstrekt onjuist is; in plaats van vergelijkingen op te lossen, moet je bij bitcoin mining herhaaldelijk gooien met een grote virtuele dobbelsteen om een hash te produceren die onder een bepaald doelnummer valt. Het is gewoon een kansspel dat deelnemers dwingt om een bepaalde hoeveelheid elektriciteit te verbruiken.</p>
+<section id="hoe-worden-nieuwe-bitcoins-gemaakt" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="hoe-worden-nieuwe-bitcoins-gemaakt"><span class="header-section-number">5.1</span> Hoe worden nieuwe bitcoins gemaakt?</h2>
+<p>Tot nu toe hebben we besproken hoe Alice $2 naar Bob kan sturen. We gaan vanaf nu stoppen met praten over dollars, want bitcoin kent geen dollars. Wat we wel hebben, zijn bitcoins zelf: digitale eenheden die waarde vertegenwoordigen op het bitcoinnetwerk.</p>
+<p>Om bij ons voorbeeld te blijven, kunnen we zeggen dat Alice 2 bitcoins naar Bob stuurt door aan te kondigen dat ze haar munten, die op haar rekening staan, naar die van Bob overzet. Vervolgens wint iemand de proof-of-work loterij, en wordt haar aangekondigde transactie toegevoegd aan het grootboek.</p>
+<p>Maar waar kwamen die 2 bitcoins van Alice oorspronkelijk vandaan? Hoe ging bitcoin van start en hoe verwierf iemand ooit munten voordat er marktplaatsen waren om ze te kopen met traditionele fiatvaluta zoals dollars of euro’s?</p>
+<p>Toen Satoshi bitcoin ontwierp, had hij ervoor kunnen kiezen om een database te maken die alle 21 miljoen munten aan hem toewees en vervolgens iedereen te vragen ze van hem te kopen. Echter zou er weinig reden zijn voor anderen om waarde toe te kennen aan een systeem waarin één enkeling alle waarde bezat. Hij kon een register gemaakt hebben waar mensen konden intekenen met een e-mailadres om kans te maken op enkele munten. Maar een registratiesysteem zou vatbaar zijn aan een zogenaamde <em>Sybil-aanval</em>, aangezien het quasi gratis is om miljoenen e-mailadressen aan te maken.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Satoshi koos uiteindelijk om de nieuwe munten te laten genereren door het proces van minen, oftewel de deelname aan de proof-of-work loterij om het recht te verkrijgen in het grootboek te schrijven. Wanneer je een grote hoeveelheid energie gebruikt en het winnende getal van het volgende geldige blok vindt, krijg je het recht om de transacties die bij jou bekend zijn toe te voegen aan het grootboek. Daarbovenop mag je ook een speciale transactie toevoegen aan het blok die we een <em>coinbase</em>-transactie noemen. Zo’n transactie zegt: 12,5 bitcoin werden gemaakt en toegekend aan Marie de Miner om haar te compenseren voor de energie die gebruikt werd om het blok te vinden.</p>
+<p>Dit is hoe nieuwe bitcoins gemaakt worden. Met dit proces is iedereen ter wereld in staat om hun eigen munten te vergaren zonder tussenkomst van een centrale autoriteit én zonder hun identiteit bekend te moeten maken. De enige vereiste is dat ze genoeg willen betalen voor de elektriciteit die nodig is om mee te doen met de loterij. Dit maakt bitcoin’s uitgifte resistent tegen <em>sybil</em>-aanvallen. Wie munten wil, zal energie moeten verbruiken en iets moeten betalen om ze te maken.</p>
+</section>
+<section id="de-blokbeloning" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="de-blokbeloning"><span class="header-section-number">5.2</span> De blokbeloning</h2>
+<p>De persoon die de loterij wint, mag zichzelf enkele vers gemaakte munten toekennen. Maar waarom is de beloning 12,5 bitcoins en niet 1000? Waarom kan niemand valsspelen en zichzelf een willekeurig bedrag toekennen?</p>
+<p>Bitcoin is een systeem van gedistribueerde consensus. Dit betekent dat iedereen akkoord moet gaan met wat geldig is en wat niet. Dat kan door software op je computer te draaien die een bekende set van regels afdwingt. Deze regels staan bekend als de consensusregels van bitcoin. Wanneer een miner een nieuw blok vindt, wordt alles tegen de consensusregels afgewogen. Wanneer het blok geldig blijkt te zijn, schrijft iedereen het in hun grootboek en wordt het geaccepteerd als waarheid. Indien niet, dan wordt het blok verworpen.</p>
+<p>Hoewel de volledige lijst van consensusregels vrij complex is, kunnen we de belangrijkste hieronder opsommen:</p>
+<ul>
+<li><p>Een geldig blok mag een specifieke hoeveelheid nieuwe munten aan het netwerk toevoegen, zolang het voldoet aan de regels van het uitgifteschema wat vastgelegd is in de software.</p></li>
+<li><p>Transacties moeten geldige handtekeningen hebben die aangeven dat de eigenaar het verzenden daadwerkelijk goedgekeurd heeft.</p></li>
+<li><p>Transacties die munten proberen uitgeven die al eerder uitgegeven werden, kunnen onder geen geval plaatsvinden.</p></li>
+<li><p>De hoeveelheid data in het blok mag een specifieke limiet niet overschrijden.</p></li>
+<li><p>De proof-of-work hash van het blok moet kleiner zijn dan het huidige doelnummer, waardoor onbetwistbaar aangetoond wordt dat dit blok tot stand kwam door een bepaalde hoeveelheid elektriciteit te gebruiken.</p></li>
+</ul>
+<p>Indien Marie een blok vindt en beslist om zichzelf een beetje extra te geven, dan zullen de computers van de overige deelnemers dit blok afwijzen en als ongeldig beschouwen. Dit komt omdat de bitcoin-software die iedereen draait een stukje code bevat dat zegt: “de huidige blokbeloning is precies 12,5 bitcoins. Als je een blok ziet waarin iemand meer dat dit bedrag toekent, verwerp het dan.”</p>
+<p>Als Marie probeert vals te spelen en een ongeldig blok produceert, dan komt het blok in niemands grootboek terecht en zal ze simpelweg veel elektriciteit verspild hebben om een vervalsing te produceren die niemand wil. Dit geeft bitcoin een <em>onvervalsbare kostbaarheid</em>, een term die werd geïntroduceerd door Nick Szabo in zijn esssay Shelling Out. Het is vrij makkelijk te begrijpen dat geld wat makkelijk te vervalsen is, nooit daadwerkelijk nuttig kan zijn als geld. Het is onmogelijk om bitcoin te vervalsen omdat iedere munt op echtheid te controleren valt met een simpele, wiskundige test.</p>
+<p>Satoshi ontgon het eerste genesis blok, wat de eerste bitcoins ooit produceerde. De code is <em>open source</em> en dus kan iedereen een kijkje onder de motorkap nemen om te zien of er niets verkeerd loopt. Maar zelfs Satoshi moest miljarden berekeningen doen en meespelen met de proof-of-work loterij om die eerste blokken te vinden. Op geen enkele manier kon hij een vervalsing produceren door te liegen over de energie die hij nodig had om een winnende oplossing te vinden. En dat terwijl hij de ontwerper van het systeem was.</p>
+<p>Iedereen die zich daarna bij het netwerk aansloot kon controleren dat zijn gevonden oplossingen voldeden aan de vereisten. Door ze naast het initiële doelnummer en transactiedata te leggen, blijkt overduidelijk dat een bepaalde hoeveelheid energie gebruikt werd om een statistisch zeldzaam doelnummer te vinden. Stel je voor dat het mogelijk is om met diezelfde precisie en regelmaat te controleren hoe fiatvaluta in het traditionele bankensysteem tot stand komt.</p>
+</section>
+<section id="de-halvering" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="de-halvering"><span class="header-section-number">5.3</span> De halvering</h2>
+<p>Het proces van minen produceert nieuwe bitcoins. Maar Satoshi wou een systeem waarin het onmogelijk was om de waarde van de munt te devalueren. Hij wou niet dat het monetaire aanbod tot in het oneindige zou blijven stijgen. In plaats daarvan, ontwierp hij een uitgifteschema dat snel begon en geleidelijk afneemt tot uiteindelijk geen nieuwe munten meer zullen worden geproduceerd.</p>
+<p>In het begin was de beloning voor een blok 50 bitcoin en dat is hoeveel Satoshi ontving voor zijn allereerste ontgonnen blok. Net zozeer kregen alle andere deelnemers die zich aansloten bij het netwerk in de begindagen voor elke gevonden blok 50 bitcoin.</p>
+<p>De bitcoin-software dwingt iedere vier jaar een halvering van de blokbeloning af. De periode is gebaseerd op het aantal blokken in plaats van een bepaalde periode van tijd, maar omdat blokken ongeveer elke tien minuten worden geproduceerd, maakt dit in werkelijkheid weinig verschil. In 2008 was de blokbeloning 50 BTC, in 2012 was het 25 BTC, in 2016 12,5. Vandaag, op 8 juni 2019, zijn al 579.856 blokken ontgonnen sinds het begin van bitcoin en is de beloning 12,5 BTC per blok.</p>
+<p>Binnen 50.144 blokken, ongeveer in mei 2020, zal de beloning verlaagd worden tot 6,25 BTC per blok. De jaarlijkse toename van het aanbod wordt dan ongeveer 1,8%. Na nog eens 12 jaar, 3 halveringen later, zullen 99% van alle bitcoins in circulatie zijn en krijgen miners nog minder dan 1 bitcoin per gevonden blok. Je kan de voortgang van de halveringen volgen op <a href="https://bitcoinblockhalf.com" class="uri">https://bitcoinblockhalf.com</a>.</p>
+<figure id="fig6" class="figure">
+<img src="images/fig6.png" class="figure-img">
+<figcaption class="figure-caption">
+<span><em>Het gecontroleerde monetaire tijdschema van bitcoin kan door iedereen worden bevestigd.</em></span>
+</figcaption>
+</figure>
+<p>Uiteindelijk, rond het jaar 2140, zal de blokbeloning volledig wegvallen en moeten miners genoegen nemen met transactievergoedingen van de gebruikers als compensatie voor hun werk.</p>
+<p>De blokbeloningen, en het uitgifteschema in het algemeen, worden afgedwongen in de bitcoin-software die, zoals eerder gesteld, volledig <em>open source</em> is en dus door iedereen volledig gevalideerd kan worden. Een blok produceren dat niet voldoet aan de regels zal door niemand met dezelfde software geaccepteerd worden.</p>
+</section>
+<section id="beheersen-van-de-uitgifte-en-het-blokinterval" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="beheersen-van-de-uitgifte-en-het-blokinterval"><span class="header-section-number">5.4</span> Beheersen van de uitgifte en het blokinterval</h2>
+<p>Het minen van bitcoin vereist computers en elektriciteit. Dus hoe meer computers en elektriciteit je ter beschikking hebt, hoe groter de kans is dat jij een winnend lot weet te vinden. Stel, het netwerk bestaat uit 100 computers met gelijke rekenkracht en jij bezit daar 10 van. Dit betekent dat je in ongeveer 10% van de gevallen een winnende oplossing zal vinden. Maar mining is een proces waar geluk en willekeur mee gemoeid gaat. Het is dus theoretisch gezien mogelijk dat er uren of dagen voorbijgaan zonder dat je een winnend lot vind.</p>
+<p>In het vorige deel hebben we uitgelegd dat miners zichzelf niet simpelweg een arbitraire blokbeloning kunnen toekennen. Die zouden door andere <em>nodes</em> verworpen worden. Maar wat als ze een heleboel energie gebruikten om het miningproces sneller te laten verlopen en zo meer bitcoins te verwerven? Dit zou in strijd zijn met het opzet in het ontwerp van bitcoin, namelijk dat het uitgifteschema van tevoren bekend zou moeten zijn.</p>
+<p>Laten we opnieuw het eerder gegeven voorbeeld nemen: er zijn 1000 mogelijke hashes en ons doelnummer is 100. In 10% van de gevallen zullen we een getal vinden dat kleiner is dan 100 en een geldig blok vinden.</p>
+<p>Stel dat het 1 seconde duurt om elke hash te berekenen. Als we iedere seconde “onze dobbelsteen rollen” door de huidige transacties en onze lukrake <em>nonce</em> te hashen, vinden we in 10% van de keren een getal dat kleiner is dan het doelnummer. We verwachten dus dat het ons gemiddeld 10 seconden vergt om een geldige hash te vinden.</p>
+<p>Wat gebeurt er wanneer 2 computers meedoen aan de loterij? Ze hashen dan dubbel zo snel en verwachten een geldige hash iedere 5 seconden. Wat als 10 computers meedoen? Elk van hen kan ongeveer iedere seconde een winnende oplossing vinden.</p>
+<p>Het probleem is dus het volgende: als meer mensen meedoen, worden blokken te snel geproduceerd. Dit leidt tot twee uitkomsten die we niet willen:</p>
+<ol type="1">
+<li><p>Het is niet meer mogelijk om een vooraf vastgesteld uitgiftescheme aan te houden. We willen hiervoor ieder uur een relatief consistent aantal bitcoins in circulatie zien komen om te zorgen dat het proces tot in het jaar 2140 duurt, en niet eerder ten einde komt.</p></li>
+<li><p>Het creëert problemen op het netwerk: wanneer blokken te snel gevonden worden en geen tijd hebben om de rest van het netwerk te bereiken voordat een volgend blok gevonden wordt, kunnen we niet tot consensus komen over de lineaire geschiedenis van transacties. Verschillende miners zouden dan transacties in hun blokken gestopt kunnen hebben, die al uitgegeven werden in een vorig blok waar ze nog niet van op de hoogte waren.</p></li>
+</ol>
+<p>Als minder mensen minen dan hebben we het tegenovergestelde:</p>
+<ol type="1">
+<li><p>Nieuwe bitcoins worden te traag uitgegeven waardoor het uitgifteschema niet klopt.</p></li>
+<li><p>Het systeem wordt onbruikbaar omdat je soms uren, dagen of langer zal moeten wachten om je transacties in het grootboek te krijgen.</p></li>
+</ol>
+<p>Het totale aantal hashes per seconde van alle miners op het netwerk noemen we de <em>hash-rate</em>.</p>
+<figure id="fig7" class="figure">
+<img src="images/fig7.png" class="figure-img">
+<figcaption class="figure-caption">
+<span><em>De tijd tussen blokken varieert afhankelijk van de hash-rate die komt en gaat, evenals willekeurige kans.</em></span>
+</figcaption>
+</figure>
+</section>
+<section id="moeilijkheidsaanpassing-consensus-over-het-doelnummer" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="moeilijkheidsaanpassing-consensus-over-het-doelnummer"><span class="header-section-number">5.5</span> Moeilijkheidsaanpassing: consensus over het doelnummer</h2>
+<p>Aangezien bitcoin een vrijwillig en permissieloos systeem is waar mensen deel aan kunnen nemen zoals zij willen, zonder dat iemand de leiding heeft, zal het aantal miners op het netwerk sterk schommelen. We hebben een manier nodig om de productie van blokken stabiel te houden in plaats van telkens een versnelling of vertraging in productie te zien wanneer miners zich aansluiten of verdwijnen.</p>
+<p>Hoe kunnen we het moeilijker maken om geldige hashes te vinden als meer spelers meedoen aan de loterij en makkelijker wanneer spelers weggaan? Op die manier zouden we de uitgifte en blokintervallen stabiel kunnen houden.</p>
+<p>Herinner je dat het minen van bitcoin een loterij is waarin je een willekeurig getal moet vinden dat kleiner is dan het doelnummer.</p>
+<figure id="fig8" class="figure">
+<img src="images/fig5.png" class="figure-img">
+<figcaption class="figure-caption">
+<span><em>We proberen deze kleine ruimte te raken. Het aantal mogelijke uitkomsten is extreem groot, dus het zal heel lang duren om daar te komen door willekeurige worpen van de dobbelsteen.</em></span>
+</figcaption>
+</figure>
+<p>Bitcoin lost dit probleem op door middel van een <em>aanpassing van de moeilijkheidgraads</em>. Omdat iedereen dezelfde code draait die dezelfde regels afdwingt, én iedereen een volledige kopie heeft van de transactiegeschiedenis, kan iedereen onafhankelijk berekenen hoe snel blokken op dat moment geproduceerd worden.</p>
+<p>Telkens wanneer we 2016 blokken geproduceerd hebben (ongeveer 2 weken)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, analyseren we de snelheid van uitgifte over de afgelopen periode. We kijken hoeveel tijd nodig was om die 2016 blokken te produceren en passen vervolgens passen het doelnummer aan om de productie van blokken te versnellen of te vertragen.</p>
+<p>Iedereen neemt de laatste 2016 blokken en deelt ze door de tijd die gemiddeld nodig was om te ze creëren. Was het gemiddelde meer dan 10 minuten? Dan gaan we te traag. Lag het gemiddelde onder de 10 minuten? Dan gaan we te snel.</p>
+<p>We kunnen nu het doelnummer aanpassen zodat het groter of kleiner is, proportioneel met hoe traag of snel we gaan, om te zorgen dat we in lijn blijven met het afgesproken interval van 10 minuten.</p>
+<p>Het doelnummer kan een groter getal worden, waardoor een groter bereik van hashes een geldige oplossing wordt. Hierdoor wordt de kans om een winnende hash te vinden voor de miners groter en hoeven ze minder energie te gebruiken om een blok te vinden. Dit heet <em>de moeilijkheidsgraad verlagen</em>.</p>
+<figure id="fig9" class="figure">
+<img src="images/fig8.png" class="figure-img">
+<figcaption class="figure-caption">
+<span><em>Het verhogen van het doel vergroot de geldige ruimte, waardoor het waarschijnlijker wordt om in minder pogingen een juiste oplossing te vinden. Daardoor wordt het goedkoper in verbrande energie.</em></span>
+</figcaption>
+</figure>
+<p>Anderzijds, kunnen we het doelnummer kleiner maken zodat er minder hashes geldig zijn en miners meer energie moeten spenderen om een blok te vinden. Dit heet <em>de moeilijkheidsgraad verhogen</em>.</p>
+<p>Dit betekent dat we voor elke periode van 2016 blokken precies weten wat het doelnummer is. Het geeft ons de magische grens waarbinnen een hash van de proof-of-work moet vallen om een winnend lot te bemachtigen, binnen die periode.</p>
+<p>De aanpassingen van de moeilijkheidsgraad en het doelnummer is misschien wel de belangrijkste innovatie van bitcoin. Het stelt iedereen in staat om onafhankelijk de lotnummers te verifiëren, die op hun beurt weer gebaseerd zijn op een doelnummer dat ook onafhankelijk te verifiëren is. Hierdoor kunnen we een loterij spelen zonder dat iemand ons de winnende combinatie hoeft te vertellen.</p>
+<p>In Figuur <a href="#fig10" data-reference-type="ref" data-reference="fig10">6.5</a> zie je de <em>hash-rate</em> (lijn) en de moeilijkheidsgraad (staven) doorheen de tijd. De moeilijkheid wordt iedere 2016 blokken aangepast en lijkt een beetje op een trap. Telkens wanneer de hash-rate boven de moeilijkheid uitstijgt, zie je dat de moeilijkheidsgraad stijgt om bij te benen. Wanneer de hash-rate zakt, zoals tussen oktober en december 2018, zakt ook de moeilijkheidsgraad. De aanpassing van de moeilijkheidsgraad volgt altijd wat de hash-rate doet met een vertraging van 2016 blokken (twee weken).</p>
+<figure id="fig10" class="figure">
+<img src="images/fig10.png" class="figure-img">
+<figcaption class="figure-caption">
+<span><em>Hash-snelheid versus moeilijkheid.</em></span>
+</figcaption>
+</figure>
+<p>Omdat er een vertraging van 2016 blokken op de aanpassing zit, is het mogelijk dat grote pieken omhoog of omlaag in hash-rate leiden tot een over- of onderproductie van bitcoins tijdens dat interval en licht afgeweken wordt van het uitgifteschema.</p>
+<p>Het verhogen van de hash-rate gaat gepaard met de productie van een grote hoeveelheid nieuwe hardware, waardoor pieken relatief ongebruikelijk zijn en niet al te veel impact hebben. Het effect van iedere piek, omhoog of omlaag, zal beperkt blijven tot dat interval van 2016 blokken. Na de volgende aanpassing komen we opnieuw bij een gemiddelde van 10 minuten per blok.</p>
+</section>
+<section id="hash-rate-en-de-dollarwaarde-van-bitcoin" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="hash-rate-en-de-dollarwaarde-van-bitcoin"><span class="header-section-number">5.6</span> Hash-rate en de dollarwaarde van bitcoin</h2>
+<p>Bitcoin herberekent de moeilijkheidsgraad automatisch op basis van alle rekenkracht van de loterijspelers. Dit zijn de miners die energie verbruiken om te hashen. Op die manier raakt de echte wereld vervlochten met onze digitale wereld. De prijs van bitcoin, de prijs van hardware en energie en de moeilijkheid van het doelnummer creëren feedback-koppelingen:</p>
+<ol type="1">
+<li><p>Speculanten kopen bitcoin omdat ze denken dat de prijs hoger gaat, waardoor ze de prijs opdrijven tot $X.</p></li>
+<li><p>Miners verbruiken tot $X aan energie en hardware om bitcoins te verdienen.</p></li>
+<li><p>Een grote vraag van kopers duwt de prijs omhoog en leidt tot meer miners die aardig verdienen aan hun activiteit.</p></li>
+<li><p>Meer miners betekent meer hash-rate en meer verbruikte energie om bitcoin te produceren. Het netwerk wordt nog sterker beveiligd. De kopers worden gerustgesteld door de veiligheid van het netwerk en drijven de prijs soms nog verder omhoog.</p></li>
+<li><p>Na 2016 blokken gaat de moeilijkheidsgraad omhoog door de aanwezigheid van meer hash-rate.</p></li>
+<li><p>Een hogere moeilijkheid betekent een lager doelnummer. De miners vinden nu minder vaak blokken waardoor sommigen meer dan $X spenderen in kosten om een bitcoin te minen.</p></li>
+<li><p>Voor sommige miners blijkt het niet meer interessant om te minen, omdat ze meer energie verbruiken dan de winst die hun activiteit oplevert wanneer ze hun bitcoin verkopen. Ze leggen hun machines af en de hash-rate op het netwerk gaat terug omlaag.</p></li>
+<li><p>De volgende 2016 blokken passeren. De moeilijkheid wordt opnieuw berekend en aangezien sommige miners offline gingen, wordt het deze keer makkelijker. Het doelnummer gaat omhoog.</p></li>
+<li><p>De lagere moeilijkheid betekent dat miners, die voorheen onrendabel waren, hun machines terug aanzetten of dat nieuwe miners op het toneel verschijnen.</p></li>
+<li><p>Ga terug naar 1.</p></li>
+</ol>
+<p>In een neerwaartse markt kan de cyclus in de andere richting gaan. Gebruikers van het netwerk dumpen dan hun munten, de prijs gaat omlaag en miners worden onrendabel.</p>
+<p>Het algoritme voor de aanpassing van de moeilijkheidsgraad zorgt dat er altijd een evenwicht wordt gevonden tussen de prijs en de hoeveelheid hash-rate die aanwezig is op het netwerk. Zelfs als de prijs drastisch zou zakken en de helft van de huidige hash-rate uit het netwerk zou duwen, dan zou de volgende aanpassing het opnieuw rendabel maken op een nieuw evenwichtsniveau.</p>
+<p>De aard van de moeilijkheidsaanpassing duwt inefficiënte miners eruit ten voordele van degenen die werken met de goedkoopst mogelijke energie en met de laagste totale operationele kosten. Na verloop van tijd dwingt het bitcoin miners richting afgelegen hoeken op de planeet. Ze gebruiken energiebronnen die onderbenut of volledig onontgonnen zijn. Een rapport van CoinShares uit 2019 schat dat ongeveer 75% van de bitcoin miners hernieuwbare energie gebruikt.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>De laatste jaren ging de prijs pijlsnel omhoog, net als de totale hash-rate. Hoe hoger de hash-rate, hoe moeilijker het is om het netwerk aan te vallen. Om te bepalen wat in het grootboek komt, moet je ten minste evenveel energie en hardware beheren als de helft van het hele netwerk. Op vandaag wordt geschat dat de elektriciteit die gebruikt wordt door bitcoin miners equivalent is met het verbruik van een land van gemiddelde grootte.</p>
+</section>
+<section id="vergoedingen-en-het-einde-van-blokbeloning" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="vergoedingen-en-het-einde-van-blokbeloning"><span class="header-section-number">5.7</span> Vergoedingen en het einde van blokbeloning</h2>
+<p>Hoe zorgen we dat miners nog altijd een drijfveer hebben om energie te spenderen om het netwerk te beveiligen wanneer de blokbeloning uiteindelijk afloopt? Het antwoord zijn de vergoedingen voor transacties. Met tijd vervangen de vergoedingen de beloning en ze geven de miners ook de drijfveer om transacties daadwerkelijk in een blok te plaatsen. Anders zouden ze perfect lege blokken kunnen produceren en enkel de blokbeloning opstrijken.</p>
+<p>De vergoedingen worden bepaald op een vrije markt waar gebruikers bieden voor de schaarse ruimte binnen een blok. Gebruikers die transacties versturen geven aan hoeveel vergoeding ze willen betalen aan miners. Op hun beurt kunnen de miners de transactie al dan niet insluiten in het volgende blok, afhankelijk van de vergoedingen. Wanneer slechts weinig transacties in het volgende blok willen, zijn de vergoedingen laag en is er weinig competitie. Wanneer de ruimte in de blokken opgevuld raakt, gaan gebruikers meer bereid zijn om een hogere vergoeding te betalen om hun transactie sneller bevestigd te zien (in de volgende blok). Wie niet wil betalen kan zijn transactievergoeding laag zetten, maar moet dan rekening houden met een langere wachttijd.</p>
+<p>In traditionele financiële systemen zijn vergoedingen doorgaans gebaseerd op een percentage van het bedrag van de transactie. In bitcoin is de waarde van de transfer niet relevant voor de vergoeding. In plaats daarvan, zijn vergoedingen proportioneel met de schaarse grondstof die ze consumeren: <em>blokruimte</em>. De vergoedingen worden gemeten in satoshi’s per byte opgebruikte ruimte in een blok.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Op die manier kan het zijn dat een transactie van een miljoen bitcoin tussen twee personen goedkoper is qua vergoeding dan een transactie die 1 BTC splits in 10 ontvangers aangezien die laatste meer ruimte zal innemen in de transactielijst.</p>
+<p>Tijdens periodes waarin bitcoin enorm in trek was, zoals de grote stierenmarkt van 2017, gingen transactievergoedingen door het dak. Sindsdien zijn een aantal nieuwe functies geïmplementeerd die het probleem van hoge transactiekosten op het netwerk verlichten.</p>
+<p>Een van die aanpassingen is Segregated Witness. Deze aanpassing zorgt voor een andere voorstelling van de data in blokken. Transacties die gebruik maken van die upgrade kunnen meer dan de originele 1MB aan blokruimte gebruiken (via een aantal slimme trucs die niet verder toegelicht worden in dit boek).</p>
+<p>Nog iets dat bijdraagt aan het verlagen van de hoge transactiekosten is <em>batching</em>. Grote handelsbeurzen en -platformen in het ecosysteem begonnen met het bundelen van transacties voor verschillende gebruikers in één: in tegenstelling tot traditionele betalingen via de bank of PayPal, die altijd geld van één persoon naar een andere sturen, kan een bitcointransactie een groot aantal inputs combineren en een groot aantal outputs produceren. Een beurs die bitcoin wil versturen om uit te betalen aan 100 verschillende gebruikers kan dat dus perfect doen in een enkele transactie. Op die manier wordt schaarse blokruimte veel efficiënter gebruikt. Wat ogenschijnlijk slechts enkele transacties per seconde zijn, kunnen in realiteit perfect duizenden transacties inhouden.</p>
+<p>Met <em>SegWit</em> en <em>batching</em> komen we al een heel eind om de vraag naar blokruimte te verlagen. Verdere verbeteringen zullen het gebruik van blokruimte nog efficiënter maken. Niettemin zal er opnieuw een dag komen dat transactievergoedingen terug oplopen en blokken door de grote vraag naar blokruimte weer voller en voller raken.</p>
+<p>We hebben nu bijna alle aspecten van bitcoin onder de loep genomen:</p>
+<ol type="1">
+<li><p>Centrale bank vervangen door een gedistribueerd grootboek.</p></li>
+<li><p>Een loterij opgezet om te bepalen wie in het grootboek mag schrijven.</p></li>
+<li><p>Spelers van de loterij worden verplicht om energie te gebruiken om lotjes te bemachtigen (door te hashen). Het is voor iedereen eenvoudig om een winnend lot te verifiëren door de hash naast ons eigen, onafhankelijk bepaald, doelnummer te leggen.</p></li>
+<li><p>Duidelijke regels voor de deelnemers: wie de regels niet volgt, zal niet geaccepteerd worden. Hun blok met beloning in de zogenaamde <em>coinbase</em>-transactie wordt dan verworpen en ze ontvangen geen bitcoin. Op die manier ontmoedigen we valsspelen en bieden we een economische stimulans om de regels te volgen.</p></li>
+<li><p>Controle over de timing en selectie van het doelnummer voor de loterij door iedereen te laten berekenen wat het doelnummer moet zijn op basis van vastgelegde regels in de software en de geschiedenis van de laatste 2016 blokken.</p></li>
+<li><p>Handhaven van het uitgifteschema door moeilijkheidsgraad aan te passen als gevolg van een hogere of lagere hash-rate.</p></li>
+<li><p>Gebruik van <em>open source</em> code om ervoor te zorgen dat iedereen voor zichzelf kan verifiëren dat zij dezelfde regels hanteerden betreffende geldigheid van transacties, blokbeloning en moeilijkheidsaanpassing.</p></li>
+</ol>
+<p>Geen centrale autoriteit meer. We hebben nu een volledig gedistribueerd en decentraal systeem. Dat is bijna het volledige plaatje. Eén probleem rest ons nog. Wanneer een nieuwe deelnemer aansluit bij het netwerk en een kopie van het grootboek opvraagt, kunnen ze van verschillende <em>nodes</em> afwijkende geschiedenissen ontvangen. Hoe zorgen we voor een enkele, lineaire geschiedenis en hoe voorkomen we dat miners het verleden herschrijven?</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Een Sybil-aanval is een aanval waarin een deelnemer aan een bepaald netwerk een groot aantal pseudonieme addressen aanmaakt om een grote hoeveelheid invloed in het netwerk te vergaren; vernoemd naar Sybil, een boek over een vrouw met een dissociatieve identiteitsstoornis<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>De aanpassingsperiode van 2016 blokken is op basis van het beoogde blokinterval van 10 minuten; 10 minuten x 2016 blokken = twee weken. Het blokinterval werd arbitrair vastgesteld door Satoshi om groot genoeg te zijn zodat de meeste nodes kunnen op de hoogte zijn van de laatste blok. De periode van twee weken is ook ietwat arbitrair gekozen, maar is ontworpen om te voorkomen dat het spel belazerd wordt door te snelle achtereenvolgende aanpassingen in de hash-rate.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Lees meer over de laatste stand van zaken betreffende mining op <a href="https://coinshares.com/research/bitcoin-mining-network-june-2019">https://coinshares.com/research/bitcoin-mining-network-june-2019</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Een byte is 8 bits.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch03.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch05.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

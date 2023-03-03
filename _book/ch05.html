@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Bitcoin Onder De Loep - 6&nbsp; Het grootboek beveiligen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch06.html" rel="next">
+<link href="./ch04.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Bitcoin Onder De Loep</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inleiding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inleiding</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Wat is bitcoin?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch05.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch08.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Wie bepaalt de regels?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch09.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">What’s next?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch10.html" class="sidebar-item-text sidebar-link">Verder lezen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch11.html" class="sidebar-item-text sidebar-link">Dankwoord</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch12.html" class="sidebar-item-text sidebar-link">Over de auteur</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#wanneer-blokken-botsen" id="toc-wanneer-blokken-botsen" class="nav-link active" data-scroll-target="#wanneer-blokken-botsen"><span class="toc-section-number">6.1</span>  Wanneer blokken botsen</a></li>
+  <li><a href="#de-enige-echte-ketting" id="toc-de-enige-echte-ketting" class="nav-link" data-scroll-target="#de-enige-echte-ketting"><span class="toc-section-number">6.2</span>  De enige, echte ketting</a></li>
+  <li><a href="#omkeerbaarheid-van-transacties" id="toc-omkeerbaarheid-van-transacties" class="nav-link" data-scroll-target="#omkeerbaarheid-van-transacties"><span class="toc-section-number">6.3</span>  Omkeerbaarheid van transacties</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>We hebben besproken hoe we erin slagen om kopieën bij te houden van, en te schrijven naar een gedistribueerd grootboek dat zonder dwang of corruptie werkt. We doen dit met behulp van een loterij en op basis van validatie door consensus.</p>
+<p>Maar wat gebeurt er wanneer een loterijwinnaar besluit om zich kwaadwillig op te stellen? Kan een miner historische boekingen in het grootboek aanpassen? Kunnen onze kwaadwillige actoren Eva, Davy en Femke samenspannen en de geschiedenis herschrijven of rekeningsaldi wijzigen en zichzelf meer munten toekennen?</p>
+<p>In dit deel gaan we de <em>blockchain</em> bespreken. Eigenlijk is het louter een marketingterm die de technologiesector binnengedrongen is. In bitcoin worden blokken aan elkaar gehecht om een duidelijk link van de ene transactie naar de volgende te behouden. Een ketting van blokken, een <em>blockchain</em>, dus. Hierdoor ontstaat een lineaire geschiedenis van creatie en uitgaven sinds Satoshi’s <em>genesis block</em> in 2009 tot op vandaag.</p>
+<p>In het vorige deel hebben we een klein beetje gelogen om het eenvoudig te houden. Wanneer je meespeelt met de loterij (om te minen), is het niet enkel de wachtende transacties en een lukrake <em>nonce</em> die je hasht. Je voegt daar ook nog een hash van het blok net daarvoer toe. Op die manier ontstaat een duidelijke link tussen jouw blok en het vorige.</p>
+<p>Herinner je dat de output van een hash-functie onvoorspelbaar is en afhankelijk is van alle inputdata die je gebruikt. De hashes van ons blok bevat nu drie verschillende inputs:</p>
+<ol type="1">
+<li><p>De transacties die we naar het grootboek willen schrijven</p></li>
+<li><p>Een lukrake <em>nonce</em></p></li>
+<li><p>Een hash van de vorige blok die we gebruiken als basis voor de geschiedenis van ons grootboek.</p></li>
+</ol>
+<div id="fig-figuur11" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/fig11.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.1: De drie inputs die zijn gebruikt om een hash voor de loterij te bouwen, bevatten nu ook de vorige winnende hash, waardoor een link ontstaat van het ene blok naar het andere.</figcaption><p></p>
+</figure>
+</div>
+<p>Dit stelt ons in staat om een historisch overzicht van elk blok te bouwen tot en met het eerste blok, ontgonnen door Satoshi. Wanneer we een nieuw blok aan de ketting toevoegen, moeten we valideren dat het geen transacties bevat die bitcoins uitgeven die in het verleden al een gespendeerd zijn.</p>
+<p>Wanneer ook maar iets verandert in de inputs van de hash, zal de output van de hash drastisch en onvoorspelbaar anders zijn. Als je probeert de data uit een oud blok te manipuleren, zal je ook de resulterende hash veranderen. Aangezien die hash ook werd gebruikt in de input voor de blokken die daar net na kwamen, zal je ook de hashes van die blokken veranderen. De hash van de laatste blok in de ketting, die gelinkt is met alle voorgaande, doet dienst als een vingerafdruk voor de volledige geschiedenis van het grootboek tot op dat moment.</p>
+<p>Het is onmogelijk om vals te spelen bij proof-of-work omdat iederen weet hoeveel energie gebruikt moet worden per blok om het vereiste doelnummer te vinden. Mocht iemand willen proberen om een oudere blok in de ketting aan te passen, zouden ze de proof-of-work hash moeten aanpassen van de blok waar ze mee knoeien én die van alle andere blokken die daarna komen. De <em>blockchain</em> is niet alleen fraudebestendig, het is ook enorm duur om het te proberen.</p>
+<p>Iedere nieuwe blok die gevonden wordt draagt effectief bij aan de veiligheid van alle blokken die ervoor kwamen omdat het de hoeveelheid elektriciteit die nodig is om de proof-of-work hashes voor de ketting tot op dat punt te herschrijven, verhoogt. Een transactie in een blok, begraven onder 6 opeenvolgende blokken wordt aanzien als finaal door de meeste handelaars. Het zou namelijk een aanzienlijke hoeveelheid energie kosten om de laatste 6 blokken opnieuw te hashen met de hash-rate van vandaag. Een transactie die 100 blokken diep zit? Vergeet het maar.</p>
+<p>Wanneer je een kopie van de <em>blockchain</em> downloadt, is elke transactie in elke blok volledig transparant. Je kan de proof-of-work hashes zelf controleren om zeker te zijn dat niets aangepast werd door de persoon die jouw het grootboek bezorgde.</p>
+<section id="wanneer-blokken-botsen" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="wanneer-blokken-botsen"><span class="header-section-number">6.1</span> Wanneer blokken botsen</h2>
+<p>Er ontbreekt nog een element in het consensus-systeem: hoe zorgen we dat iedereen met dezelfde lineaire geschiedenis van transacties werkt wanneer miners tegelijk twee blokken vinden en ze naar iedereen uitsturen?</p>
+<p>Stel je voor dat we nu een wereldwijd netwerk draaien. Mensen van over heel de wereld, van de VS tot China, zijn allemaal aangesloten bij dit globale netwerk en ze spelen allemaal mee met de proof-of-work mining loterij.</p>
+<p>Iemand in Chicago vindt een geldig blok. Ze deelt het resultaat met het netwerk en alle computers in de VS accepteren het. Tegelijk vindt iemand in Shanghai een paar seconden later ook een blok. De buren van die vinden hebben nog niets vernomen van het blok uit Chicago. Ze accepteren het Chinese voorstel.</p>
+<p>Beide blokken bevatten een transactie van 1 bitcoin van Alice naar Bob. Onmiddellijk na ontvangst stuurt Bob het bedrag opnieuw door naar Charles. Wegens het verschil in timing reflecteert het blok uit de VS deze situatie en Bob saldo van nul. Echter, de Chinese speler vond een oplossing en publiceerde een blok voordat Bob’s transactie naar Charles bekend was. Het blok uit China toont een saldo voor Bob van 1 bitcoin.</p>
+<p>Het netwerk is nu verdeeld. Het is onduidelijk welke versie van het grootboek juist is, aangezien beide versie geldige transacties bevatten die correct gelinkt zijn met alle voorgaande transacties. De twee versie bevatten een geldige hoeveelheid proof-of-work. Dit noemen we een <em>chain split</em> (splitsing van de ketting). Je kan geen centrale autoriteit raadplegen om uit te maken welke versie wint. Hoe pakken we dit aan?</p>
+<p>Bitcoin biedt een eenvoudige oplossing: gewoon afwachten. Het staat de miners vrij om te kiezen welk blok ze willen kiezen als basis om verder op te werken. De Amerikanen zullen minen om verder te bouwen op het eerste blok waar zij van hoorden en de Chinezen bouwen verder op hun versie.</p>
+<p>In de volgende tien minuten wordt opnieuw een blok gevonden. De code van bitcoin stipuleert dat diegene die de meeste energie gebruikt heeft voor alle blokken in hun ketting wint. Deze cruciale spelregel vraagt ons om het totale verrichte werk in een ketting te sommeren en de voorkeur te geven aan de “zwaarste”, cumulatieve proof-of-work ketting. Dit principe noemen we Nakamoto Consensus, ter ere van Satoshi.</p>
+<p>Stel dat een Chinese miner opnieuw een volgend blok wint. Hun ketting is nu één blok verder dan de Amerikaanse en bevat meer totale proof-of-work. Wanneer ze deze bevinding meedelen aan de rest van het netwerk, realiseren de spelers in de VS zich dat de Chinese <em>nodes</em> een ketting geproduceerd hebben waar harder aan gewerkt is. Ze zien hun “foutje” onmiddellijk in en herorganiseren zich. Dit betekent dat zij hun laatste blok alsnog verwerpen en de twee blokken uit China opnemen in hun grootboek.</p>
+<div id="fig-figuur12" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/fig12.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.2: Een kettingsplitsing is een natuurlijk proces dat optreedt wanneer miners tegelijkertijd een blok vinden tijd. De ketting die zwaarder wordt door totaal bewijs van werk is geldig, en de andere blok wordt wees.</figcaption><p></p>
+</figure>
+</div>
+<p>Het blok uit de VS wordt nu een zogenaamd wees-blok (<em>orphan block</em>). Aangezien het alsnog werd verworpen, gaat de beloning voor de vinden verloren en de transacties uit dat blok worden niet in het grootboek geregistreerd. De verworpen transacties zijn niet verloren. Sommige werden misschien ook opgenomen in het blok uit China en de rest kan uiteindelijk in een toekomstig blok alsnog in het grootboek geschreven worden.</p>
+<p>Alle onbevestigde transacties worden door miners lokaal bijgehouden op hun computer in een <em>mempool</em>. Elke transactie uit een verworpen blok komt terug in de mempool terecht. Ze worden vervolgens door iemand anders in een blok geplaatst, zolang er geen conflict is met de nieuwe geschiedenis van het grootboek vastgelegd in het laatste blok.</p>
+<p>Hoewel we in dit voorbeeld naar de <em>nodes</em> refereren als zijnde Amerikaans of Chinese, weten nodes in realiteit niets over elkaars identiteit of geografische locatie. Het enige bewijs van validiteit dat ze nodig hebben, is dat iemand de zwaarste, cumulatieve proof-of-work ketting heeft en dat de transacties in die ketting zelf allemaal geldig zijn (geen dubbele-uitgaven).</p>
+<p>Dit soort splitsingen van de ketting zijn vrij normaal en gebeuren af en toe in bitcoin. Doorgaans wordt opnieuw consensus bereikt in het volgend blok. Verbeteringen in technologie van bekendmaking van blokken en verhoogde netwerk-connectiviteit maken dit probleem mettertijd minder groot. Op vandaag, en hoogstwaarschijnlijk voor de nabije toekomst, heeft bitcoin een harde limiet op de hoeveelheid data dat toegelaten wordt in een blok. Een deel van de reden dat bitcoin, iedere tien minuten, relatief kleine blokken produceert, is om te verzekeren dat <em>orphans</em> erg zeldzaam zijn.</p>
+<p>Minen is een spel van kansen. Soms liggen blokken tien minuten uiteen, maar andere keren slechts enkele seconden. Indien we om de paar seconden blokken zouden produceren, of indien we erg grootte blokken zouden hebben, zou de kans groter zijn dat Amerikaanse en Chinese blokken conflicteren. Ze liggen ver uiteen en het duurt langer om elkaar te bereiken. Als <em>orphans</em> te veel voorkomen, zou de ketting ontrafelen. We zouden <em>orphan na orphan</em> zien verschijnen en <em>nodes</em> zouden de tijd niet hebben om uit te maken welke nu het laatste, juiste blok is.</p>
+<p>Het is belangrijk om blokken klein te houden om de kans te vergroten dat het hele netwerk de laatste blok kan ontvangen vooraleer te beginnen aan een volgende loterij. De andere, wellicht belangrijkste reden, is dat kleine blokken ook de vereisten qua hardware voor het draaien van een <em>node</em> relatief laag houden. Zo blijft het de moeite om aan te sluiten bij het netwerk en blijft mining meer verspreidt over tijd. Grote blokken zouden miners aanzetten om zich te vestigen in <em>datacenters</em> in gekende geografische locaties om splitsingen, die slecht zijn voor hun rendabiliteit, te vermijden</p>
+</section>
+<section id="de-enige-echte-ketting" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="de-enige-echte-ketting"><span class="header-section-number">6.2</span> De enige, echte ketting</h2>
+<p>Laten we terugkeren naar ons voorbeeld uit hoofdstuk 3 waarin Henri voor het eerst aansluit bij het bitcoin netwerk.</p>
+<p>De <em>node</em> van Henri zal een connectie maken met enkele andere <em>nodes</em> op het netwerk. Vervolgens vraagt hij die om nog andere <em>nodes</em> die zij kennen en maakt ook daar verbinding mee. Dit heet <em>node discovery</em>.</p>
+<p>Sommige van die <em>nodes</em> zullen slechte bedoelingen hebben en valse kopieën van het grootboek bezorgen. Ze kunnen bijvoorbeeld ongeldige handtekeningen voor transacties bevatten, of vervalste en oneerlijk ontgonnen bitcoin die geen geldige proof-of-work hashes hebben. Al die versies zullen onmiddellijk verworpen worden en de afzenders worden door de node van Henri verbannen.</p>
+<p>Andere <em>nodes</em> zullen wel eerlijk zijn, maar conflicterende versies van de waarheid hebben. Misschien ging een net offline en loopt hij nog enkele blokken achter. Wanneer hij verschillende kopieën van de blockchain download die allemaal geldig zijn, zal de software gebruik maken van Nakamoto Consensus. Door te meten wat het totale, cumulative proof-of-work is, weet Henri onmiddellijk welke de zwaarste ketting is die wordt aanzien als de enige echte.</p>
+<p><em>Nodes</em> spreken voortdurend met elkaar om zeker te zijn dat ze het meeste recente blok hebben. Aangezien alle nodes de regel van de zwaarste ketting volgen, is er consensus over wat de ware staat van het grootboek is. Henri moet niet vertrouwen op een meerderheid van stemmen. Dit systeem zou makkelijk te bedriegen vallen door een grote hoeveelheid <em>nodes</em> te draaien die kwaadaardig zijn.</p>
+<p>Zelfs als Henri met verschillende verouderde of kwaadaardige nodes en slechts 1 correcte node connecteert, dan zou de bitcoin-software weten welke de juiste versie is. Die versie bevat de grootste hoeveelheid proof-of-work en bevat geldige transacties helemaal tot aan de <em>genesis block</em>. Het belang hiervan kan niet genoeg benadrukt worden. Henri moet niemand vertrouwen; de software op zijn computer zal alle validaties uitvoeren die nodig zijn om zeker te zijn dat de <em>blockchain</em> waar hij mee werkt de enige juiste is.</p>
+<p>Het is daarom uiterst moeilijk voor hackers om een <em>node</em> een valse kopie van de ketting te bezorgen. Om dat te doen zou je alle eerlijke connecties moeten kunnen uitsluiten en het doelwit enkel laten verbinding maken met je eigen, kwaadaardige <em>nodes</em>.</p>
+</section>
+<section id="omkeerbaarheid-van-transacties" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="omkeerbaarheid-van-transacties"><span class="header-section-number">6.3</span> Omkeerbaarheid van transacties</h2>
+<p>Doorgaans ontstaan concurrerende versies van het grootboek per toeval en wordt snel uitgeklaard welke de juiste versie is. Maar iemand die het netwerk wil aanvallen kan gebruik maken van Nakamoto Consensus door meer dan 50% van de totale <em>hash-rate</em> te beheren. Op die manier kunnen ze de zwaarste, cumulatieve proof-of-work ketting produceren. Die versie van het grootboek zal transacties bevatten die de aanvaller kiest, zolang ze genoeg energie willen verbruiken om de aanval door te zetten. Wanneer ze deze ketting bekendmaken aan het netwerk, zouden andere <em>nodes</em> hem accepteren als zijnde de echte. Die heet een 51%-aanval, omdat je meer dan de helft van alle rekenkracht op het netwerk nodig hebt om de aanval succesvol uit te voeren.</p>
+<p>Het is belangrijk om te begrijpen dat er geen echte finaliteit van transacties is in bitcoin, aangezien 51%-aanvallen of <em>orphan blocks</em> altijd tot de mogelijkheid behoren. Ontvangers van transacties wachten typisch tot enkele blokken boven op hun transactie werd gemined. Wanneer de hoeveelheid energie die nodig zou zijn om de ketting te herschrijven hoog genoeg is, wordt het erg onwaarschijnlijk dat de transactie ongedaan wordt gemaakt en beschouwen de deze transfer als finaal.</p>
+<p>Blokken die ontgonnen worden boven op een blok waar onze transactie in zit, noemen we doorgaans <em>confirmaties</em>. Dus wanneer iemand zegt dat een bitcointransactie 6 confirmaties heeft, wordt bedoeld dat er 6 blokken gepasseerd zijn sinds de transactie in het grootboek zit. Wanneer je als handelaar een digitaal product verkoopt met geringe marginale kosten, kan het voldoende zijn met slechts 1 confirmatie of zelfs zonder confirmaties. Je stuurt de download link zodra de transactie aangekondigd werd op het netwerk. Wanneer je een huis verkoop, kan het misschien meer aangewezen zijn om te wachten op 12 confirmaties. Dat kost gemiddeld zo’n twee uur aan mining. Hoe langer je wacht, hoe meer proof-of-work boven op het blok met jouw transactie komt. Het wordt veel duurder om de transactie om te keren. Vandaag accepteren de meeste mensen een transactie met 6 confirmaties.</p>
+<p>Moest de <em>hash-rate</em> van bitcoin in belangrijke mate dalen, wat betekent dat minder energie ieder blok beveiligd, dan kan je altijd het aantal confirmaties verhogen vereist voor een “finale afwikkeling”. Hoewel de niet-finaliteit van transacties op het eerste zicht verontrustend lijkt, is het belangrijk om in het achterhoofd te houden dat transacties met kredietkaarten tot wel 120 dagen later kunnen worden teruggedraaid.</p>
+<p>Aan de andere kant, zijn bitcointransacties na een paar blokken zo goed als onomkeerbaar. Vanuit dit oogpunt, is de omkeerbaarheid en finaliteit van bitcoin een ontzettende verbetering met de meeste traditionele betalingsnetwerken, althans voor de handelaar.</p>
+<p>Op vandaag wordt geschat dat iemand met de energie van het volledige bitcoin netwerk ter beschikking – een serieuze uitdaging, aangezien je toegang tot de energie van een klein land én alle gespecialiseerde hardware moet hebben – nog altijd meer dan een jaar zou nodig hebben om de volledige geschiedenis van de <em>chain</em> te herschrijven. Je kan deze data bekijken op <a href="https://bitcoin.sipa.be/">https://bitcoin.sipa.be/</a></p>
+<p>Footnote: dit interessante artikel gaat dieper in op ongeldige blokken in bitcoin: <a href="https://hackernoon.com/bitcoin-miners-beware-invalid-blocks-need-not-apply-51c293ee278b">https://hackernoon.com/bitcoin-miners-beware-invalid-blocks-need-not-apply-51c293ee278b</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch04.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch06.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

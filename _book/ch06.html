@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Bitcoin Onder De Loep - 7&nbsp; Forks en 51%-aanvallen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch07.html" rel="next">
+<link href="./ch05.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Bitcoin Onder De Loep</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inleiding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inleiding</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Wat is bitcoin?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch06.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch08.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Wie bepaalt de regels?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch09.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">What’s next?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch10.html" class="sidebar-item-text sidebar-link">Verder lezen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch11.html" class="sidebar-item-text sidebar-link">Dankwoord</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch12.html" class="sidebar-item-text sidebar-link">Over de auteur</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#mining-pools" id="toc-mining-pools" class="nav-link active" data-scroll-target="#mining-pools"><span class="toc-section-number">7.1</span>  Mining pools</a></li>
+  <li><a href="#aanvallen" id="toc-aanvallen" class="nav-link" data-scroll-target="#aanvallen"><span class="toc-section-number">7.2</span>  51%-aanvallen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In de begindagen minede Satoshi zijn eerste bitcoins door gebruik te maken van de CPU in zijn computer. Aangezien de moeilijkheid oorspronkelijk erg laag was, bleek het relatief goedkoop om die munten te produceren.</p>
+<p>Met tijd, begonnen mensen te sleutelen aan de software om te minen en werd het efficiënter. Uiteindelijk werd software geschreven die gebruik maakte van gespecialiseerde grafische apparatuur (GPU’s), gewoonlijk gebruikt door <em>gamers</em>, om te minen.</p>
+<p>Met GPU’s werd minen een heel stuk efficiënter. De moeilijkheidsgraad ging snel omhoog om de grote hoeveelheden <em>hash-rate</em> van de GPU’s bij te benen. Minen met een CPU werd onrendabel.</p>
+<p>Na de komst van GPU mining werd de efficientie van miners nog verhoogd door de product van <em>Application Specific Integrated Circuits</em> (ASIC’s). Deze computerchips doen maar 1 ding: de bitcoin sha256 hash-functie uitvoeren. Ze kunnen enkel dit algoritme en bleken opnieuw een orde van grootte meer efficiënt dan GPU’s. De grafische kaarten voor gamers werden snel onrendabel om te minen, net zoals gebeurde met CPU’s. Iedere paar jaar komt een nieuwe generatie ASIC’s naar buiten die beter werken dan de vorige versies.</p>
+<p>De eerste miners op het netwerk spendeerden slechts enkele centen aan elektriciteit om hun bitcoin te produceren. Terwijl de prijs omhoogging, en meer miners zich aansluiten bij het netwerk, ging de moeilijkheidsgraad van het minen omhoog en werd het duurder en duurder om bitcoins te produceren. Vandaag hangt de prijs rond de $8.000 per BTC en spenderen miners duizenden dollars per geproduceerde bitcoin.</p>
+<section id="mining-pools" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="mining-pools"><span class="header-section-number">7.1</span> Mining pools</h2>
+<p>Een probleem met bitcoin mining is dat het niet-deterministisch is, zoals het rollen met een dobbelsteen. Dit betekent dat je een grote hoeveelheid geld kunt uitgeven aan elektriciteit en nooit een geldig blok vinden.</p>
+<p>In 2010 werden zogenaamde <em>mining pools</em> al populair om het probleem van variabiliteit te verbeteren. Een <em>mining pool</em> is een manier om het risico te delen, vergelijkbaar met een verzekering.</p>
+<p>Alle miners dragen bij aan een <em>pool</em>. Het lijkt alsof ze 1 grote miner zijn op het netwerk. Wanneer iemand in die <em>pool</em> een geldig blok vindt, wordt de beloning gedeeld met iedereen die bijdroeg, proportioneel verdeelt volgens de <em>hash-rate</em> die ze bijdroegen. Dit stelt ook kleine mining-operaties in staat om beloningen te verdienen voor de kleine hoeveelheid rekenkracht die zij bijdragen. In ruil voor de dienst die zij aanbieden, nemen <em>pool</em> een stukje van de beloning.</p>
+<p>Het concept van <em>mining pool</em> introduceerde enige centralisatie. Gebruikers sloten zich aan bij de grotere en bekendere diensten. Maar de gebruikers van de pools zijn wel eigenaar van hun <em>hash-rate</em>. Ze kunnen op elk moment veranderen naar een nieuwe <em>mining pool</em>.</p>
+<p>Er bestaat historisch precedent voor individuele miners die een <em>pool</em> verlaten omdat die te groot is geworden. In 2014 zat bijna de helft van de rekenkracht op het netwerk bij Ghash.io. De miners zagen in hoe gecentraliseerd dit werd en gingen vrijwillig over op andere diensten.</p>
+<p>Hoewel de relatief gecentraliseerde mining pools vandaag een realiteit zijn, worden constant verbeteringen voorgesteld om de mining-technologie beter te maken, zoals bijvoorbeeld BetterHash. Met deze verbetering zouden individuele miners meer controle hebben over welke transacties ze precies willen minen, zonder hiervoor afhankelijk te zijn van coördinatie van hun <em>mining pool</em>.</p>
+</section>
+<section id="aanvallen" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="aanvallen"><span class="header-section-number">7.2</span> 51%-aanvallen</h2>
+<p>Centralisatie in <em>mining pools</em> leidt tot bezorgdheid dat enkele van de grote pools zouden kunnen samenspannen om een 51%-aanval uit te voeren op het netwerk. Vandaag hebben de vijf grootste identificeerbare pools meer dan 50% van de totale mining <em>hash-rate</em>. Laat ons onderzoeken hoe zo’n aanval wordt uitgevoerd en welke gevaren eraan verbonden zijn.</p>
+<p>Wanneer je net meer dan 50% van de rekenkracht in handen hebt, kan je de meerderheid van de toevoegingen aan het grootboek domineren. Je kan immers de zwaarste ketting produceren, mits je de aanval even kan volhouden. Herinner je dat Nakamoto Consensus stelt dat <em>nodes</em> altijd de zwaarste cumulative proof-of-work <em>chain</em> moeten accepteren die ze kennen.</p>
+<p>Hier is een voorbeeld van een simpele 51%-aanval:</p>
+<ol type="1">
+<li><p>Stel dat heel het netwerk bitcoin hasht aan 1000 hashes per seconde.</p></li>
+<li><p>Je koopt een heleboel mining hardware en elektriciteit om 2000 hashes per seconde te produceren. We hebben nu 66% van de totale <em>hash-rate</em> (2000 van de 3000 hashes per seconde).</p></li>
+<li><p>Je begint een ketting te minen met enkel lege blokken.</p></li>
+<li><p>Binnen twee weken publiceer je de ketting van lege blokken. Omdat je veel sneller was dan de eerlijke miners, zal jouw versie twee keer zo veel proof-of-work bevatten. De aankondiging van jouw versie op het netwerk zal alle andere nodes doen overgaan op een <em>reorg</em> waarin alle transacties uit de laatste 2 weken ongedaan worden gemaakt.</p></li>
+</ol>
+<p>Naast het minen van lege blokken, waardoor de <em>chain</em> onbruikbaar wordt, is het ook mogelijk om een dubbele-uitgaven aanval uit te voeren:</p>
+<ol type="1">
+<li><p>Stuur bitcoin naar een handelsbeurs</p></li>
+<li><p>Ruil om naar USD en haal de dollars af.</p></li>
+<li><p>Op een later tijdstip kan je de <em>chain</em> publiceren zonder de transactie naar de handelsbeurs uit stap 1 hierboven.</p></li>
+<li><p>Je herschreef de geschiedenis van het grootboek en bezit nu zowel de originele bitcoins als de dollars.</p></li>
+</ol>
+<p>De energieconsumptie van bitcoin’s <em>hash-rate</em> is ongeveer equivalent met dat van een gemiddeld land. De benodigde hardware en elektriciteit verwerven om zo’n aanval uit te voeren is enorm duur. Schattingen tonen dat het ongeveer $700.000 dollar per uur kost om een 51%-aanval uit te voeren. Die kost blijft snel stijgen. Deze schatting neemt de reactie van eerlijke miners, wat de kost van de aanval nog zou opdrijven, niet in rekening.</p>
+<p>Daarnaast is ook nog eens zeer moeilijk om een dubbele-uitgaven aanval succesvol af te ronden zonder vingerafdrukken achter te laten die duidelijk maken wie je bent. Tenslotte, je zou een hoeveelheid energie van een gemiddeld land aan het opgebruiken zijn, na miljoenen dollars aan hardware aan te kopen, en je moet een handelsbeurs vinden waar je miljoenen dollars kan uitcashen om de aanval te doen slagen.</p>
+<p>Maar stel dat een kwaadaardige partij, met ongelimiteerde budgetten, zoals een overheid, zou beslissen om dit te doen en erin slaagt om de aanval vol te houden zodat het effect op het netwerk meer dan gewoon wat overlast is. Dan nog zou het netwerk in principe kunnen reageren door de proof-of-work functie te veranderen (naar iets anders dan sha256). Hierdoor zou alle bestaande bitcoin mining hardware, die de aanvaller ook gebruikt, nutteloos worden. Die machines dienen specifiek om sha256 hashes te doen. Maar het aanpassen van het proof-of-work algoritme moet je zien als een laatste redmiddel en alle eerlijke miners zouden eveneens in de klappen delen. Toch zou het netwerk overleven.</p>
+<p>Naast de onwaarschijnlijkheid van de aanval, geeft het hebben van de meerderheid van de <em>hash-rate</em> je nog altijd het recht niet om dingen te doen die nog belangrijker zijn:</p>
+<ol type="1">
+<li><p>Je kan geen munten uit het niets creëren die de regels van uitgifteschema schenden. Aangezien dit de consensusregels van de blokbeloning zou overtreden, worden de blokken gewoon verworpen, zelfs al hadden ze genoeg proof-of-work.</p></li>
+<li><p>Je kan geen munten uitgeven die niet van jou zijn. Het is onmogelijk om een geldige digitale handtekening hiervoor te leveren.</p></li>
+</ol>
+<p>De nodes die bitcoin accepteren voor betalingen zouden het netwerk eerlijk houden in het aanzicht van een oneerlijke meerderheid van miners door simpelweg de regels van bitcoin toe te passen. Aldus is een 51%-aanval eerder hinderlijk dan een veiligheidsrisico. Waarschijnlijk is het <em>worst-case scenario</em> hier dat een overheid met een goed gevulde portemonnee, bitcoin probeert onbruikbaar te maken. Maar zo’n aanval kan niet eeuwig duren. Wanneer bitcoin herstelt van een aanval zoals beschreven, zou het enkel haar veerkracht benadrukken en een nog groter probleem worden voor zij die het willen aanvallen.</p>
+<p>Hoewel bitcoin tot dusver nog nooit met succes aangevallen is met een 51%-aanval, hebben we wel voorbeelden van andere <em>blockchain</em> die veel minder hash-rate hebben die hen beveiligd. In deze gevallen waren de beurzen het slachtoffer van de aanval en verloren ze geld aan munten met lage hash-rate die ze in de eerste plaats nooit hadden moeten aanbieden op hun platform.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch05.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch07.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

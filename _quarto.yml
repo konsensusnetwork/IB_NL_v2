@@ -1,0 +1,49 @@
+project:
+  type: book
+
+book:
+  title: "Bitcoin Onder De Loep"
+  subtitle: "De technologie achter het eerste werkelijk schaarse en gedecentraliseerde geld"
+  author: "Yann Pritzker"
+  date: "3/3/2023"
+  chapters:
+    - index.qmd
+    - inleiding.qmd
+    - ch01.qmd
+    - ch02.qmd
+    - ch03.qmd
+    - ch04.qmd
+    - ch05.qmd
+    - ch06.qmd
+    - ch07.qmd
+    - ch08.qmd
+    - ch09.qmd
+    - ch10.qmd
+    - ch11.qmd
+    - ch12.qmd
+    - references.qmd
+
+
+format:
+  html:
+    theme: cosmo
+    fontsize: 1.1em
+    linestretch: 1.7
+  pdf:
+    documentclass: scrbook
+    toc: true
+    toc-title: Inhoudsopgave
+    number-sections: true
+    colorlinks: true
+    fontfamily: Alegreya
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+    keep-tex: true
+  epub:
+    cover-image: cover.png
+
+
+
+

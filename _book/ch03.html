@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Bitcoin Onder De Loep - 4&nbsp; Proof-of-work</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch04.html" rel="next">
+<link href="./ch02.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Bitcoin Onder De Loep</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inleiding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inleiding</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Wat is bitcoin?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch03.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch08.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Wie bepaalt de regels?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch09.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">What’s next?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch10.html" class="sidebar-item-text sidebar-link">Verder lezen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch11.html" class="sidebar-item-text sidebar-link">Dankwoord</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch12.html" class="sidebar-item-text sidebar-link">Over de auteur</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#een-energie-intensieve-asymmetrische-puzzel" id="toc-een-energie-intensieve-asymmetrische-puzzel" class="nav-link active" data-scroll-target="#een-energie-intensieve-asymmetrische-puzzel"><span class="toc-section-number">4.1</span>  Een energie-intensieve asymmetrische puzzel</a></li>
+  <li><a href="#hashing" id="toc-hashing" class="nav-link" data-scroll-target="#hashing"><span class="toc-section-number">4.2</span>  Hashing</a></li>
+  <li><a href="#een-korte-uitleg-over-bits" id="toc-een-korte-uitleg-over-bits" class="nav-link" data-scroll-target="#een-korte-uitleg-over-bits"><span class="toc-section-number">4.3</span>  Een korte uitleg over bits</a></li>
+  <li><a href="#laten-we-een-aantal-teksten-hashen" id="toc-laten-we-een-aantal-teksten-hashen" class="nav-link" data-scroll-target="#laten-we-een-aantal-teksten-hashen"><span class="toc-section-number">4.4</span>  Laten we een aantal teksten hashen</a></li>
+  <li><a href="#hashen-om-de-proof-of-work-loterij-te-winnen" id="toc-hashen-om-de-proof-of-work-loterij-te-winnen" class="nav-link" data-scroll-target="#hashen-om-de-proof-of-work-loterij-te-winnen"><span class="toc-section-number">4.5</span>  Hashen om de proof-of-work loterij te winnen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Het loterij-systeem uit het vorige hoofdstuk, heeft twee grote problemen:</p>
+<ol type="1">
+<li><p>Als we er van uitgaan dat dat we geen enkele centrale partij kunnen vertrouwen, wie verkoopt dan de loten van de loterij en wie kiest de winnende loten?</p></li>
+<li><p>Hoe zorgen we ervoor dat de winnaar van de loterij de rest niet bedriegt en alleen geldige transacties in het grootboek opneemt?</p></li>
+</ol>
+<p>Als we een systeem willen waar iedereen <em>zonder toestemming</em> lid van kan worden, dan moeten we de eis dat iets betrouwbaar moet zijn uit het systeem halen; het systeem moet <em>trustless</em> zijn.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>We moeten tijdens het bedenken van ons systeem rekening houden met de volgende punten:</p>
+<ol type="1">
+<li><p>Bij gecentraliseerde loterijen zoals de Staatsloterij is één partij verantwoordelijk voor het genereren van alle loten. In ons systeem kunnen we centraal gezag niet vertrouwen, en moet iedereen dus zijn eigen loten kunnen genereren.</p></li>
+<li><p>We moeten voorkomen dat iemand de loterij volledig in handen krijgt door een enorm aantal loten te genereren. De loten kunnen dus niet gratis zijn. Hoe zorgen we ervoor dat je daadwerkelijk geld moet uitgeven om kaartjes te kopen als er niemand is bij wie je ze kunt kopen? De loten moeten van het universum gekocht worden: je moet elektriciteit verbruiken om ze te genereren.</p></li>
+<li><p>Het moet voor alle andere deelnemers gemakkelijk zijn om te verifiëren dat je de loterij gewonnen hebt door alleen je lotnummer te controleren. Bij de Staatsloterij bepaalt de trekkingsmachine van de Nederlandse Loterij wat het winnende lot is. In een decentraal systeem kan dat niet. In plaats daarvan laten we iedereen van tevoren overeenstemmen over een getallenreeks. Valt je lotnummer binnen het vooraf bepaalde bereik, dan win je. We gebruiken een cryptografische truc om dit te doen met behulp van een <em>hash-functie</em>.</p></li>
+</ol>
+<section id="een-energie-intensieve-asymmetrische-puzzel" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="een-energie-intensieve-asymmetrische-puzzel"><span class="header-section-number">4.1</span> Een energie-intensieve asymmetrische puzzel</h2>
+<p>De elegante oplossing voor alle drie deze problemen heet <em>proof-of-work</em>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Dit onderdeel van ons systeem werd al in 1993, lang voor bitcoin, uitgevonden. Dit is waarschijnlijk het moeilijkst te begrijpen onderdeel van onze loterij, dus we zullen hier in de komende hoofdstukken uitgebreid op ingaan.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Zoals we hierboven (in punt 2) concludeerden, moet het duur zijn om de loten te genereren. Anders kan iedereen zomaar een onbeperkt aantal loten in handen krijgen. Wat is gegarandeerd duur en is niet afkomstig van een centrale autoriteit?</p>
+<p>Dit is waar de natuurkundige kant van bitcoin de hoek om komt kijken: de eerste wet van de thermodynamica stelt dat energie niet kan worden gecreëerd of vernietigd. Een <em>gratis lunch</em> bestaat niet als het op energie aankomt. Elektriciteit is altijd duur omdat je het moet kopen van de stroomproducenten, of je eigen energiecentrale moet bouwen. In beide gevallen is het verkrijgen van elektriciteit kostbaar.</p>
+<p>Het concept achter proof-of-work is dat je deelneemt aan een willekeurig proces, vergelijkbaar met het rollen van een dobbelsteen. Maar in plaats van de gekende zes zijden, heeft onze dobbelsteen ongeveer evenveel zijden als atomen in het universum. Om deze dobbelsteen te rollen, en dus lotnummers te genereren, moet je computer berekeningen uitvoeren die elektriciteit kosten.</p>
+<p>Om de loterij te winnen, moet je een getal vinden dat wiskundig is afgeleid van de transacties die je in het grootboek wilt schrijven, plus het getal dat je op de dobbelsteen hebt gerold. Om dit winnende getal te vinden, moet je misschien wel miljarden, triljoenen of quadriljoenen keren met de dobbelsteen rollen, waarbij je duizenden dollars aan energie verbruikt. Omdat dit proces op basis van willekeur geschied, is het voor iedereen mogelijk om zijn eigen loten te genereren, zonder centrale autoriteit. Hiervoor heb je slechts de lijst met transacties nodig die je naar het grootboek wilt schrijven en een computer die een willekeurig getal genereert.</p>
+<p>Ook al heeft het vinden van een winnend getal misschien duizenden dollars aan verbrande energie gekost, toch hoeven andere mensen op het netwerk slechts een paar simpele checks uit te voeren om jouw werk te controleren:</p>
+<ol type="1">
+<li><p>Is het getal dat je hebt opgegeven minder dan het bereik dat van tevoren is afgestemd?</p></li>
+<li><p>Is het getal inderdaad wiskundig afgeleid van een geldige verzameling van transacties die je naar het grootboek wilt schrijven?</p></li>
+<li><p>Voldoen de transacties die gepresenteerd worden aan de regels van bitcoin (zijn er geen dubbele uitgaven, worden er geen nieuwe bitcoin gegenereerd buiten het toegestane schema, etc.)?</p></li>
+</ol>
+<p>Het proces van proof-of-work berust op toeval en vereist vele computerhandelingen om een winnend lot te vinden. Het heeft echter maar één handeling nodig om het te verifiëren. Je kunt het zien als een kruiswoordpuzzel of een sudoku. Het kost je misschien uren om op te lossen, maar als je de opgeloste puzzel aan iemand die de regels kent geeft, kan hij in een oogopslag zien of jouw oplossing correct is. Dit maakt het systeem <em>asymmetrisch</em>: het is moeilijk voor de mensen die meespelen, maar heel makkelijk voor de mensen die de uitkomst controleren.</p>
+<p>Omdat je een aanzienlijke hoeveelheid energie (en dus geld) verbrandt bij het spelen van deze loterij, wil je dat iedereen jouw winnende lot accepteert zodat jij de prijs krijgt. Je wordt dus gestimuleerd om alleen transacties die voldoen aan de regels toe te voegen aan het grootboek.</p>
+<p>Als je bijvoorbeeld geld probeert uit te geven dat al eerder is uitgegeven, dan wordt je winnende lot door iedereen afgewezen en is alle energie die je hebt verbrand om je lot te kopen voor niets geweest. Aan de andere kant, wie zich aan de regels houdt en alleen geldige transacties aan het grootboek toevoegt, wordt beloond met bitcoin om de energierekening te betalen en hopelijk ook nog een beetje winst over te houden.</p>
+<p>Het proof-of-work systeem heeft de belangrijke eigenschap dat het kosten heeft die in de echte wereld verankerd zijn. Als je het netwerk aan zou willen vallen door sommige deelnemers te bedreigen, zou je niet alleen hun computers moeten hacken of overnemen, maar ook hun elektriciteitsrekening moeten betalen.</p>
+<p>Maar hoe kunnen deelnemers bewijzen dat ze deze energie daadwerkelijk hebben verbrand? Hiervoor hebben we een spoedcursus computerwetenschappen nodig over twee belangrijke concepten: <em>hashing</em> en <em>bits</em>.</p>
+</section>
+<section id="hashing" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="hashing"><span class="header-section-number">4.2</span> Hashing</h2>
+<p>De asymmetrische proof-of-work-puzzel van bitcoin omvat het gebruik van een <em>hash-functie</em>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Een functie is een wiskundige bewerking waarin je een invoer (x) hebt en je hiervoor een <em>uitvoerwaarde</em> <span class="math inline">\(f(x)\)</span> krijgt. De functie <span class="math inline">\(f(x)=2x\)</span> neemt bijvoorbeeld de waarde x en vermenigvuldigt deze met twee. Dus de invoer <span class="math inline">\(x=2\)</span> geeft ons de uitvoerwaarde <span class="math inline">\(f(x)=4\)</span>.</p>
+<p>Een hash-functie is een speciale functie. Een invoer van deze functie kan iedere willekeurige reeks gegevens zijn, en de uitvoer is een getal dat er willekeurig uitziet:</p>
+<pre><code>    66ef3d9a8035fa324e813fdc368ac175
+    2e329a1cb663cd1559c747d549983bf8</code></pre>
+<p>Bovenstaande uitvoer is het resultaat van een specifieke hash-functie met de invoer Hallo Wereld. De specifieke hash-functie die hiervoor gebruikt werd, is sha256. Niet geheel toevallig dezelfde hash-functie die bitcoin ook gebruikt.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p><img src="images/fig4.png" class="img-fluid" alt="Data gaat er aan de ene kant in, en aan de andere kant komt er een gigantisch onvoorspelbaar getal uit.">{#fig-fig4)}</p>
+<p>De sha256 hash-functie heeft de volgende eigenschappen die nuttig zijn voor ons:</p>
+<ol type="1">
+<li><p>De output is deterministisch. Dat wil zeggen dat je bij dezelfde invoer altijd dezelfde uitvoer krijgt.</p></li>
+<li><p>De uitvoer is onvoorspelbaar. Indien slechts één letter van de invoer veranderd wordt, dan is de output <em>volledig</em> anders, zonder enige correlatie met de oude invoer.</p></li>
+<li><p>De uitvoer-hash is snel te berekenen, onafhankelijk van de grootte van de invoer.</p></li>
+<li><p>Het is praktisch onmogelijk twee verschillende invoerwaardes te vinden die dezelfde uitvoer hebben.</p></li>
+<li><p>De sha256 functie is een éénrichtingsfunctie. Het is onmogelijk om de invoer te herleiden uit de uitvoer.</p></li>
+<li><p>De uitvoer is altijd een specifieke grootte (256 <em>bits</em> voor sha256).</p></li>
+</ol>
+</section>
+<section id="een-korte-uitleg-over-bits" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="een-korte-uitleg-over-bits"><span class="header-section-number">4.3</span> Een korte uitleg over bits</h2>
+<p>Het getallensysteem waar je bekend mee bent, bestaande uit de getallen 0 tot en met 9 wordt <em>decimaal</em> genoemd omdat het tien cijfers heeft. Computers geven de voorkeur aan een ander getallenstelsel: een systeem gemaakt van enen en nullen, die respectievelijk de aan- of afwezigheid van een elektrisch signaal aangeven. Dit getallensysteem wordt <em>binair</em> genoemd.</p>
+<p>In het decimale stelsel gebruik je slechts de cijfers <span class="math inline">\(0\)</span> tot en met <span class="math inline">\(9\)</span>. Als je slechts één cijfer gebruikt, kun je tien verschillende getallen vertegenwoordigen, 0 tot en met 9. Als je twee cijfers gebruikt, kun je <span class="math inline">\(10 \times 10 = 100\)</span> verschillende getallen voorstellen: <span class="math inline">\(00, 01,...\)</span> tot en met <span class="math inline">\(99\)</span>. Voor drie cijfers kun je <span class="math inline">\(10 \times 10 \times 10 = 1000\)</span> getallen hebben: <span class="math inline">\(000, 001,...\)</span> tot en met <span class="math inline">\(999\)</span>.</p>
+<p>Hopelijk begin je hier een patroon in te zien. Om erachter te komen hoe groot het getal is dat we kunnen voorstellen met N cijfers, vermenigvuldigen we tien, <span class="math inline">\(N\)</span> keer met zichzelf, oftewel <span class="math inline">\(10^N\)</span> (<span class="math inline">\(10\)</span> tot de macht van <span class="math inline">\(N\)</span>).</p>
+<p>Het binaire stelsel werkt op dezelfde manier. Het enige dat verandert is het aantal cijfers die beschikbaar zijn. Terwijl we gewend zijn aan het decimaal stelsel met tien cijfers, kan een <em>binair cijfer</em> of <em>bit</em> slechts twee waarden hebben: nul en één.</p>
+<p>Als een <em>bit</em> 2 waarden kan vertegenwoordigen, dan kunnen twee <em>bits</em> 4 waarden vertegenwoordigen: <span class="math inline">\(00, 01, 10, 11\)</span>. Je kunt dit berekenen door <span class="math inline">\(2 \times 2\)</span> te vermenigvuldigen, aangezien elk cijfer twee waarden kan hebben. Drie bits kunnen <span class="math inline">\(2 \times 2 \times 2 = 2^3 = 8\)</span> waarden vertegenwoordigen: <span class="math inline">\(000, 001, 010, 011, 100, 101, 110, 111\)</span>.</p>
+<p>Een <em>binair</em> getal dat N <em>bits</em> lang is, kan dus <span class="math inline">\(2^N\)</span> verschillende waarden vertegenwoordigen.</p>
+<p>Daarom is het aantal unieke waarden die je kunt vertegenwoordigen met 256 bits, de grootte van de sha256 hashing functie, <span class="math inline">\(2^{256}\)</span>. Dat is een gigantisch, bijna onvoorstelbaar groot aantal. Weergegeven in decimaal, is getal dit 78 cijfers lang. Ter vergelijking is dit ongeveer dezelfde ordegrootte als het geschatte aantal atomen in het bekende universum.</p>
+<p><span class="math inline">\(2^{256}\)</span> = 115 792 089 237 316 195 423 570 985 008 687 907 853 269 984 665 640 564 039 457 584 007 913 129 639 936</p>
+<p>Bovenstaande getal is het aantal mogelijke resultaten van een sha256 hash-functie. Het is dus zo goed als onmogelijk om te voorspellen wat het getal zal zijn dat door deze functie wordt geproduceerd. Het zou hetzelfde zijn als het perfect voorspellen van de uitkomst van 256 achtereenvolgende muntworpen, of het raden van de locatie van één willekeurig uitgekozen atoom, ergens in het universum.</p>
+<p>Dit getal is uiteraard te lang om te blijven uitschrijven, dus we houden het vanaf nu gewoon op <span class="math inline">\(2^{256}\)</span>, maar ik hoop dat dit het ongelofelijke aantal mogelijkheden duidelijk heeft gemaakt.</p>
+</section>
+<section id="laten-we-een-aantal-teksten-hashen" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="laten-we-een-aantal-teksten-hashen"><span class="header-section-number">4.4</span> Laten we een aantal teksten hashen</h2>
+<p>Hier zijn enkele voorbeeldteksten en hun sha256 hashes. De uitvoer wordt weergegeven in decimale notatie, maar binnenin een computer zou dit de bekende reeks van enen en nullen zijn.</p>
+<p>Het punt is om te tonen hoe drastisch de uitvoer verandert op basis van één kleine wijziging in de invoer, en om te laten zien dat je niet kunt voorspellen welke uitvoer geproduceerd wordt door de hash-functie op basis van wat je erin stopt:</p>
+<pre><code>    “Hello World!”
+    869913660443924676617831651669733090238
+    07181648024718778313526389892860994842
+   
+    “Hello World!!”
+    849402277206958989554476271088404243643
+    90283616735576803008868844073193772558</code></pre>
+<p>Op geen enkele manier kan iemand op basis van deze getallen zien of berekenen wat de invoer is geweest, zelfs geen computer. Als je zelf met sha256 wilt spelen, kun je het uitproberen op <a href="https://passwordsgenerator.net/sha256-hash-generator">https://passwordsgenerator.net/sha256-hash-generator</a>.</p>
+</section>
+<section id="hashen-om-de-proof-of-work-loterij-te-winnen" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="hashen-om-de-proof-of-work-loterij-te-winnen"><span class="header-section-number">4.5</span> Hashen om de proof-of-work loterij te winnen</h2>
+<p>Nu zijn we klaar om te praten over het belangrijkste stukje magie. We zeiden dat er <span class="math inline">\(2^{256}\)</span> totale mogelijke sha256-uitvoerwaarden zijn. Laten we in dit voorbeeld voor het gemak even doen alsof er slechts 1000 verschillende uitkomsten zijn.</p>
+<p>Het loterijsysteem werkt als volgt:</p>
+<ol type="1">
+<li><p>Alice kondigt aan dat ze 2 dollar naar Bob wil sturen.</p></li>
+<li><p>Iedereen die meespeelt, neemt de transactie Alice geeft $2 aan Bob, en voegt hier een willekeurig getal aan toe, wat we een <em>nonce</em> noemen.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Hierdoor zal de input van hun sha256 hash-functie anders zijn dan de input van die van anderen, wat helpt om een winnend getal te vinden.</p></li>
+<li><p>Als dat getal kleiner is dan het <em>doelnummer</em> (dit bespreken we verder in het volgende hoofdstuk), winnen ze de loterij.</p></li>
+<li><p>Als het getal dat ze krijgen groter is dan het doelnummer, dan hashen ze opnieuw, maar voegen dit keer een andere nonce toe: <em>Alice geeft $2 aan Bob nonce=12345</em>, dan <em>Alice geeft $2 aan Bob nonce=92435</em>, dan <em>Alice geeft $2 aan Bob nonce=132849012348092134</em>, enzovoort. Ze doen dit net zolang tot iemand een hash heeft gevonden die kleiner is dan het doelnummer.</p></li>
+</ol>
+<p>Het kan vele, vele pogingen kosten om een hash te vinden die kleiner is dan het doelnummer. We kunnen in feite bepalen hoe vaak iemand de loterij kan winnen door de kans dat ze een winnend getal vinden te manipuleren. Als er 1000 mogelijke hashes zijn, en we stellen het doelnummer in op 100, welk percentage van hashes zit er dan onder de doelnummer?</p>
+<p>Dat is natuurlijk vrij basale wiskunde; 100 van de 1000 mogelijkheden, of 100/1000 = 10% van de hashes zullen minder zijn dan het doelnummer. Dus als je een stuk tekst hasht en je hash-functie heeft 1000 verschillende uitkomsten, verwacht je dat 10% van de hashes onder het doelnummer van 100 uitkomt.</p>
+<p>En dit is dus precies hoe onze loterij werkt: we spreken een doelnummer af, dan nemen we alle transacties die mensen toe willen voegen aan het grootboek, en hashen ze met een willekeurig getal erbij (de <em>nonce</em>). Zodra iemand een hash vindt die onder het doelnummer valt, deelt hij dit mee aan het hele netwerk:</p>
+<p>Hoi iedereen!</p>
+<ul>
+<li><p>Ik heb de transacties Alice stuurt $2 naar Bob en Charlotte stuurt $5 naar Alice genomen.</p></li>
+<li><p>Ik heb hier de nonce 32895 aan toegevoegd.</p></li>
+<li><p>De hash hiervan kwam uit op 42, wat minder is dan het afgesproken doelnummer van 100.</p></li>
+<li><p>Hier is mijn proof-of-work: de transactiegegevens, de nonce die ik heb gebruikt, en de hash die werd geproduceerd op basis van die inputs.</p></li>
+</ul>
+<p>Het heeft mij misschien miljarden hash-pogingen en duizenden dollars aan energie gekost om deze hash te vinden, maar iedereen kan onmiddellijk valideren dat ik dit werk daadwerkelijk heb gedaan; omdat ik zowel de invoergegevens (transacties en nonce) als de verwachte uitvoer (het hash-nummer) aan iedereen heb laten zien, kunnen ze dezelfde hash uitvoeren om in één poging te valideren of ik ze de juiste gegevens heb gegeven.</p>
+<p>Hoe verhoudt dit zich tot het verbruiken van energie? We zeiden al eerder dat de set van alle mogelijke hashes eigenlijk een gigantisch getal is, dat ongeveer net zo groot is als het aantal atomen in het universum. We kunnen het doel instellen op een laag genoeg getal zodat slechts een heel klein deel van de hashes geldig is. Dit betekent dat iedereen die een geldige hash wil vinden, een enorme hoeveelheid rekentijd, en dus elektriciteit, zal moeten verbruiken om een hash te vinden die kleiner is dan ons doelnummer.</p>
+<p>Hoe lager het doelnummer, hoe meer pogingen het kost om een geldig getal te vinden, en hoe hoger het doelnummer, hoe sneller we een winnende hash kunnen vinden. Als onze kans om het juiste getal te vinden één op een miljoen is, dan bewijzen we door dit getal te vinden dat we ongeveer een miljoen berekeningen hebben uitgevoerd.</p>
+<div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/fig5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.1: We kunnen hashing zien als het rollen van een gigantische dobbelsteen op basis van specifieke invoergegevens, met een aantal zijden gelijk aan het aantal atomen in het universum. Alleen die invoergegevens die ervoor zorgen dat je onder het doelnummer rolt, winnen de loterij. Om de loterij te winnen, moet je aan de rest van het netwerk laten zien welke gegevens je hebt gebruikt om tot de uitkomst te komen.</figcaption><p></p>
+</figure>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Nvdr. vrij vertaald: <em>zonder vertrouwen</em>. <em>Trustless</em> houdt in dit geval in dat de gebruiker het systeem niet hoeft te vertrouwen, maar alles zelf objectief kan verifiëren.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Proof-of-work betekent letterlijk <em>bewijs van uitgevoerd werk/gedane arbeid</em>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://en.wikipedia.org/wiki/Proof-of-work_system">https://en.wikipedia.org/wiki/Proof-of-work_system</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://en.wikipedia.org/wiki/Hash_function">https://en.wikipedia.org/wiki/Hash_function</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://en.wikipedia.org/wiki/SHA-2">https://en.wikipedia.org/wiki/SHA-2</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Staat voor number used only once<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch02.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch04.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
