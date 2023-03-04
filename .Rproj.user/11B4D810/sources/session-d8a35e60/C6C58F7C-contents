@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 1f144f58-ec01-4231-8236-5722ddfc667f
+      url: 'https://transcendent-narwhal-44a5b0.netlify.app'

@@ -1,1 +1,1 @@
-{"options":{"chapters":true},"entries":[{"key":"fig-bitcoinnetwerk","caption":"Bitcoin is een netwerk van computers die de bitcoinclientsoftware draaien.","order":{"number":1,"section":[2,0,0,0,0,0,0]}}],"headings":["waar-komt-bitcoin-vandaan","welke-problemen-lost-het-op"]}
+{"entries":[{"caption":"Bitcoin is een netwerk van computers die de bitcoinclientsoftware draaien.","order":{"section":[1,0,0,0,0,0,0],"number":1},"key":"fig-bitcoinnetwerk"}],"options":{"chapters":true},"headings":["waar-komt-bitcoin-vandaan","welke-problemen-lost-het-op"]}

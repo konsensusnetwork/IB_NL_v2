@@ -2,38 +2,56 @@ project:
   type: book
 
 book:
-  title: "Bitcoin Onder De Loep"
-  subtitle: "De technologie achter het eerste werkelijk schaarse en gedecentraliseerde geld"
+  title: "Bitcoin Ontdekken"
+  subtitle: "De werking van decentraal geld eenvoudig uitgelegd"
   author: "Yann Pritzker"
+  translator: "Bitcoin Labrador"
   date: "3/3/2023"
+  favicon: cover.png
+  twitter-card: true
+  site-url: https://bitcoinboeken.com
+  repo-url: https://github.com/konsensusnetwork/ib_nl2/
+  #repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
   chapters:
     - index.qmd
     - inleiding.qmd
-    - ch01.qmd
-    - ch02.qmd
-    - ch03.qmd
-    - ch04.qmd
-    - ch05.qmd
-    - ch06.qmd
-    - ch07.qmd
-    - ch08.qmd
-    - ch09.qmd
-    - ch10.qmd
-    - ch11.qmd
-    - ch12.qmd
-    - references.qmd
+    - part: "Hoofdstukken"
+      chapters:
+          - ch01.qmd
+          - ch02.qmd
+          - ch03.qmd
+          - ch04.qmd
+          - ch05.qmd
+          - ch06.qmd
+          - ch07.qmd
+          - ch08.qmd
+          - ch09.qmd
+    - part: "Extra"
+      chapters:
+          - ch10.qmd
+          - ch11.qmd
+          - ch12.qmd
+          - references.qmd
 
 
 format:
   html:
     theme: cosmo
+    toc: true
+    toc-title: Inhoudsopgave
+    toc-location: right
     fontsize: 1.1em
     linestretch: 1.7
+    number-depth: 0
+    cap-location: top
   pdf:
     documentclass: scrbook
     toc: true
     toc-title: Inhoudsopgave
     number-sections: true
+    number-depth: 0
     colorlinks: true
     fontfamily: Alegreya
     geometry:
@@ -43,6 +61,17 @@ format:
     keep-tex: true
   epub:
     cover-image: cover.png
+    
+filters:
+  - social-share
+share:
+  permalink: "https://bitcoinboeken.com/"
+  description: "Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands."
+  twitter: true
+  facebook: true
+  reddit: true
+  linkedin: true
+  email: true
 
 
 
