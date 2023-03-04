@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bitcoin Onder De Loep - 6&nbsp; Het grootboek beveiligen</title>
+<title>Bitcoin Ontdekken - 5&nbsp; Het grootboek beveiligen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./ch06.html" rel="next">
 <link href="./ch04.html" rel="prev">
+<link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -41,6 +42,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/social-share-0.1.0/social-share.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/social-share-0.1.0/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -62,6 +65,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<meta name="twitter:title" content="Bitcoin Ontdekken - 5&nbsp; Het grootboek beveiligen">
+<meta name="twitter:description" content="We hebben besproken hoe we erin slagen om kopieën bij te houden van, en te schrijven naar een gedistribueerd grootboek dat zonder dwang of corruptie werkt.">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -70,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -83,7 +89,40 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Bitcoin Onder De Loep</a> 
+      <a href="./">Bitcoin Ontdekken</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/konsensusnetwork/ib_nl2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Bitcoin-Ontdekken.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Bitcoin-Ontdekken.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -95,12 +134,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Over dit boek</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inleiding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inleiding</span></a>
+  <a href="./inleiding.html" class="sidebar-item-text sidebar-link">Inleiding</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -113,49 +152,59 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Wat is bitcoin?</span></a>
+  <a href="./ch01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Wat is bitcoin?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></a>
+  <a href="./ch02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></a>
+  <a href="./ch03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Proof-of-work</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></a>
+  <a href="./ch04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Mining</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch05.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></a>
+  <a href="./ch05.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></a>
+  <a href="./ch06.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></a>
+  <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch08.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Wie bepaalt de regels?</span></a>
+  <a href="./ch08.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Wie bepaalt de regels?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch09.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">What’s next?</span></a>
+  <a href="./ch09.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What’s next?</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Extra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch10.html" class="sidebar-item-text sidebar-link">Verder lezen</a>
@@ -171,19 +220,9 @@ ul.task-list li input[type="checkbox"] {
   <a href="./ch12.html" class="sidebar-item-text sidebar-link">Over de auteur</a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Extra</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Bibliografie</a>
   </div>
 </li>
       </ul>
@@ -194,12 +233,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Inhoudsopgave</h2>
    
   <ul>
-  <li><a href="#wanneer-blokken-botsen" id="toc-wanneer-blokken-botsen" class="nav-link active" data-scroll-target="#wanneer-blokken-botsen"><span class="toc-section-number">6.1</span>  Wanneer blokken botsen</a></li>
-  <li><a href="#de-enige-echte-ketting" id="toc-de-enige-echte-ketting" class="nav-link" data-scroll-target="#de-enige-echte-ketting"><span class="toc-section-number">6.2</span>  De enige, echte ketting</a></li>
-  <li><a href="#omkeerbaarheid-van-transacties" id="toc-omkeerbaarheid-van-transacties" class="nav-link" data-scroll-target="#omkeerbaarheid-van-transacties"><span class="toc-section-number">6.3</span>  Omkeerbaarheid van transacties</a></li>
+  <li><a href="#wanneer-blokken-botsen" id="toc-wanneer-blokken-botsen" class="nav-link active" data-scroll-target="#wanneer-blokken-botsen">Wanneer blokken botsen</a></li>
+  <li><a href="#de-enige-echte-ketting" id="toc-de-enige-echte-ketting" class="nav-link" data-scroll-target="#de-enige-echte-ketting">De enige, echte ketting</a></li>
+  <li><a href="#omkeerbaarheid-van-transacties" id="toc-omkeerbaarheid-van-transacties" class="nav-link" data-scroll-target="#omkeerbaarheid-van-transacties">Omkeerbaarheid van transacties</a></li>
   </ul>
 </nav>
     </div>
@@ -208,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></h1>
 </div>
 
 
@@ -235,8 +274,8 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <div id="fig-figuur11" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.1: De drie inputs die zijn gebruikt om een hash voor de loterij te bouwen, bevatten nu ook de vorige winnende hash, waardoor een link ontstaat van het ene blok naar het andere.</figcaption><p></p>
 <p><img src="images/fig11.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6.1: De drie inputs die zijn gebruikt om een hash voor de loterij te bouwen, bevatten nu ook de vorige winnende hash, waardoor een link ontstaat van het ene blok naar het andere.</figcaption><p></p>
 </figure>
 </div>
 <p>Dit stelt ons in staat om een historisch overzicht van elk blok te bouwen tot en met het eerste blok, ontgonnen door Satoshi. Wanneer we een nieuw blok aan de ketting toevoegen, moeten we valideren dat het geen transacties bevat die bitcoins uitgeven die in het verleden al een gespendeerd zijn.</p>
@@ -244,8 +283,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Het is onmogelijk om vals te spelen bij proof-of-work omdat iederen weet hoeveel energie gebruikt moet worden per blok om het vereiste doelnummer te vinden. Mocht iemand willen proberen om een oudere blok in de ketting aan te passen, zouden ze de proof-of-work hash moeten aanpassen van de blok waar ze mee knoeien én die van alle andere blokken die daarna komen. De <em>blockchain</em> is niet alleen fraudebestendig, het is ook enorm duur om het te proberen.</p>
 <p>Iedere nieuwe blok die gevonden wordt draagt effectief bij aan de veiligheid van alle blokken die ervoor kwamen omdat het de hoeveelheid elektriciteit die nodig is om de proof-of-work hashes voor de ketting tot op dat punt te herschrijven, verhoogt. Een transactie in een blok, begraven onder 6 opeenvolgende blokken wordt aanzien als finaal door de meeste handelaars. Het zou namelijk een aanzienlijke hoeveelheid energie kosten om de laatste 6 blokken opnieuw te hashen met de hash-rate van vandaag. Een transactie die 100 blokken diep zit? Vergeet het maar.</p>
 <p>Wanneer je een kopie van de <em>blockchain</em> downloadt, is elke transactie in elke blok volledig transparant. Je kan de proof-of-work hashes zelf controleren om zeker te zijn dat niets aangepast werd door de persoon die jouw het grootboek bezorgde.</p>
-<section id="wanneer-blokken-botsen" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="wanneer-blokken-botsen"><span class="header-section-number">6.1</span> Wanneer blokken botsen</h2>
+<section id="wanneer-blokken-botsen" class="level2">
+<h2 class="anchored" data-anchor-id="wanneer-blokken-botsen">Wanneer blokken botsen</h2>
 <p>Er ontbreekt nog een element in het consensus-systeem: hoe zorgen we dat iedereen met dezelfde lineaire geschiedenis van transacties werkt wanneer miners tegelijk twee blokken vinden en ze naar iedereen uitsturen?</p>
 <p>Stel je voor dat we nu een wereldwijd netwerk draaien. Mensen van over heel de wereld, van de VS tot China, zijn allemaal aangesloten bij dit globale netwerk en ze spelen allemaal mee met de proof-of-work mining loterij.</p>
 <p>Iemand in Chicago vindt een geldig blok. Ze deelt het resultaat met het netwerk en alle computers in de VS accepteren het. Tegelijk vindt iemand in Shanghai een paar seconden later ook een blok. De buren van die vinden hebben nog niets vernomen van het blok uit Chicago. Ze accepteren het Chinese voorstel.</p>
@@ -256,8 +295,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Stel dat een Chinese miner opnieuw een volgend blok wint. Hun ketting is nu één blok verder dan de Amerikaanse en bevat meer totale proof-of-work. Wanneer ze deze bevinding meedelen aan de rest van het netwerk, realiseren de spelers in de VS zich dat de Chinese <em>nodes</em> een ketting geproduceerd hebben waar harder aan gewerkt is. Ze zien hun “foutje” onmiddellijk in en herorganiseren zich. Dit betekent dat zij hun laatste blok alsnog verwerpen en de twee blokken uit China opnemen in hun grootboek.</p>
 <div id="fig-figuur12" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.2: Een kettingsplitsing is een natuurlijk proces dat optreedt wanneer miners tegelijkertijd een blok vinden tijd. De ketting die zwaarder wordt door totaal bewijs van werk is geldig, en de andere blok wordt wees.</figcaption><p></p>
 <p><img src="images/fig12.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;6.2: Een kettingsplitsing is een natuurlijk proces dat optreedt wanneer miners tegelijkertijd een blok vinden tijd. De ketting die zwaarder wordt door totaal bewijs van werk is geldig, en de andere blok wordt wees.</figcaption><p></p>
 </figure>
 </div>
 <p>Het blok uit de VS wordt nu een zogenaamd wees-blok (<em>orphan block</em>). Aangezien het alsnog werd verworpen, gaat de beloning voor de vinden verloren en de transacties uit dat blok worden niet in het grootboek geregistreerd. De verworpen transacties zijn niet verloren. Sommige werden misschien ook opgenomen in het blok uit China en de rest kan uiteindelijk in een toekomstig blok alsnog in het grootboek geschreven worden.</p>
@@ -267,8 +306,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Minen is een spel van kansen. Soms liggen blokken tien minuten uiteen, maar andere keren slechts enkele seconden. Indien we om de paar seconden blokken zouden produceren, of indien we erg grootte blokken zouden hebben, zou de kans groter zijn dat Amerikaanse en Chinese blokken conflicteren. Ze liggen ver uiteen en het duurt langer om elkaar te bereiken. Als <em>orphans</em> te veel voorkomen, zou de ketting ontrafelen. We zouden <em>orphan na orphan</em> zien verschijnen en <em>nodes</em> zouden de tijd niet hebben om uit te maken welke nu het laatste, juiste blok is.</p>
 <p>Het is belangrijk om blokken klein te houden om de kans te vergroten dat het hele netwerk de laatste blok kan ontvangen vooraleer te beginnen aan een volgende loterij. De andere, wellicht belangrijkste reden, is dat kleine blokken ook de vereisten qua hardware voor het draaien van een <em>node</em> relatief laag houden. Zo blijft het de moeite om aan te sluiten bij het netwerk en blijft mining meer verspreidt over tijd. Grote blokken zouden miners aanzetten om zich te vestigen in <em>datacenters</em> in gekende geografische locaties om splitsingen, die slecht zijn voor hun rendabiliteit, te vermijden</p>
 </section>
-<section id="de-enige-echte-ketting" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="de-enige-echte-ketting"><span class="header-section-number">6.2</span> De enige, echte ketting</h2>
+<section id="de-enige-echte-ketting" class="level2">
+<h2 class="anchored" data-anchor-id="de-enige-echte-ketting">De enige, echte ketting</h2>
 <p>Laten we terugkeren naar ons voorbeeld uit hoofdstuk 3 waarin Henri voor het eerst aansluit bij het bitcoin netwerk.</p>
 <p>De <em>node</em> van Henri zal een connectie maken met enkele andere <em>nodes</em> op het netwerk. Vervolgens vraagt hij die om nog andere <em>nodes</em> die zij kennen en maakt ook daar verbinding mee. Dit heet <em>node discovery</em>.</p>
 <p>Sommige van die <em>nodes</em> zullen slechte bedoelingen hebben en valse kopieën van het grootboek bezorgen. Ze kunnen bijvoorbeeld ongeldige handtekeningen voor transacties bevatten, of vervalste en oneerlijk ontgonnen bitcoin die geen geldige proof-of-work hashes hebben. Al die versies zullen onmiddellijk verworpen worden en de afzenders worden door de node van Henri verbannen.</p>
@@ -277,8 +316,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Zelfs als Henri met verschillende verouderde of kwaadaardige nodes en slechts 1 correcte node connecteert, dan zou de bitcoin-software weten welke de juiste versie is. Die versie bevat de grootste hoeveelheid proof-of-work en bevat geldige transacties helemaal tot aan de <em>genesis block</em>. Het belang hiervan kan niet genoeg benadrukt worden. Henri moet niemand vertrouwen; de software op zijn computer zal alle validaties uitvoeren die nodig zijn om zeker te zijn dat de <em>blockchain</em> waar hij mee werkt de enige juiste is.</p>
 <p>Het is daarom uiterst moeilijk voor hackers om een <em>node</em> een valse kopie van de ketting te bezorgen. Om dat te doen zou je alle eerlijke connecties moeten kunnen uitsluiten en het doelwit enkel laten verbinding maken met je eigen, kwaadaardige <em>nodes</em>.</p>
 </section>
-<section id="omkeerbaarheid-van-transacties" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="omkeerbaarheid-van-transacties"><span class="header-section-number">6.3</span> Omkeerbaarheid van transacties</h2>
+<section id="omkeerbaarheid-van-transacties" class="level2">
+<h2 class="anchored" data-anchor-id="omkeerbaarheid-van-transacties">Omkeerbaarheid van transacties</h2>
 <p>Doorgaans ontstaan concurrerende versies van het grootboek per toeval en wordt snel uitgeklaard welke de juiste versie is. Maar iemand die het netwerk wil aanvallen kan gebruik maken van Nakamoto Consensus door meer dan 50% van de totale <em>hash-rate</em> te beheren. Op die manier kunnen ze de zwaarste, cumulatieve proof-of-work ketting produceren. Die versie van het grootboek zal transacties bevatten die de aanvaller kiest, zolang ze genoeg energie willen verbruiken om de aanval door te zetten. Wanneer ze deze ketting bekendmaken aan het netwerk, zouden andere <em>nodes</em> hem accepteren als zijnde de echte. Die heet een 51%-aanval, omdat je meer dan de helft van alle rekenkracht op het netwerk nodig hebt om de aanval succesvol uit te voeren.</p>
 <p>Het is belangrijk om te begrijpen dat er geen echte finaliteit van transacties is in bitcoin, aangezien 51%-aanvallen of <em>orphan blocks</em> altijd tot de mogelijkheid behoren. Ontvangers van transacties wachten typisch tot enkele blokken boven op hun transactie werd gemined. Wanneer de hoeveelheid energie die nodig zou zijn om de ketting te herschrijven hoog genoeg is, wordt het erg onwaarschijnlijk dat de transactie ongedaan wordt gemaakt en beschouwen de deze transfer als finaal.</p>
 <p>Blokken die ontgonnen worden boven op een blok waar onze transactie in zit, noemen we doorgaans <em>confirmaties</em>. Dus wanneer iemand zegt dat een bitcointransactie 6 confirmaties heeft, wordt bedoeld dat er 6 blokken gepasseerd zijn sinds de transactie in het grootboek zit. Wanneer je als handelaar een digitaal product verkoopt met geringe marginale kosten, kan het voldoende zijn met slechts 1 confirmatie of zelfs zonder confirmaties. Je stuurt de download link zodra de transactie aangekondigd werd op het netwerk. Wanneer je een huis verkoop, kan het misschien meer aangewezen zijn om te wachten op 12 confirmaties. Dat kost gemiddeld zo’n twee uur aan mining. Hoe langer je wacht, hoe meer proof-of-work boven op het blok met jouw transactie komt. Het wordt veel duurder om de transactie om te keren. Vandaag accepteren de meeste mensen een transactie met 6 confirmaties.</p>
@@ -427,16 +466,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch04.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Mining</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch06.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<div class="page-columns page-rows-contents page-layout-article"><div class="social-share"><a href="https://twitter.com/share?url=https://bitcoinboeken.com/&amp;text=Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands." target="_blank" class="twitter"><i class="fab fa-twitter fa-fw fa-lg"></i></a><a href="https://www.linkedin.com/shareArticle?url=https://bitcoinboeken.com/&amp;title=Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands." target="_blank" class="linkedin"><i class="fa-brands fa-linkedin-in fa-fw fa-lg"></i></a>  <a href="mailto:?subject=Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands.&amp;body=Check out this link:https://bitcoinboeken.com/" target="_blank" class="email"><i class="fa-solid fa-envelope fa-fw fa-lg"></i></a><a href="https://www.facebook.com/sharer.php?u=https://bitcoinboeken.com/" target="_blank" class="facebook"><i class="fab fa-facebook-f fa-fw fa-lg"></i></a><a href="https://reddit.com/submit?url=https://bitcoinboeken.com/&amp;title=Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands." target="_blank" class="reddit">   <i class="fa-brands fa-reddit-alien fa-fw fa-lg"></i></a></div></div>
 
 
 

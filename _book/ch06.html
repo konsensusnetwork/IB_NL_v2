@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bitcoin Onder De Loep - 7&nbsp; Forks en 51%-aanvallen</title>
+<title>Bitcoin Ontdekken - 6&nbsp; Forks en 51%-aanvallen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./ch07.html" rel="next">
 <link href="./ch05.html" rel="prev">
+<link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -41,6 +42,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/social-share-0.1.0/social-share.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/social-share-0.1.0/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -62,6 +65,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<meta name="twitter:title" content="Bitcoin Ontdekken - 6&nbsp; Forks en 51%-aanvallen">
+<meta name="twitter:description" content="In de begindagen minede Satoshi zijn eerste bitcoins door gebruik te maken van de CPU in zijn computer.">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -70,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -83,7 +89,40 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Bitcoin Onder De Loep</a> 
+      <a href="./">Bitcoin Ontdekken</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/konsensusnetwork/ib_nl2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Bitcoin-Ontdekken.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Bitcoin-Ontdekken.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -95,12 +134,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Over dit boek</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inleiding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inleiding</span></a>
+  <a href="./inleiding.html" class="sidebar-item-text sidebar-link">Inleiding</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -113,49 +152,59 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Wat is bitcoin?</span></a>
+  <a href="./ch01.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Wat is bitcoin?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></a>
+  <a href="./ch02.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">De tussenpersoon verwijderen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Proof-of-work</span></a>
+  <a href="./ch03.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Proof-of-work</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mining</span></a>
+  <a href="./ch04.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Mining</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></a>
+  <a href="./ch05.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch06.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></a>
+  <a href="./ch06.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></a>
+  <a href="./ch07.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch08.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Wie bepaalt de regels?</span></a>
+  <a href="./ch08.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Wie bepaalt de regels?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch09.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">What’s next?</span></a>
+  <a href="./ch09.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What’s next?</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Extra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ch10.html" class="sidebar-item-text sidebar-link">Verder lezen</a>
@@ -171,19 +220,9 @@ ul.task-list li input[type="checkbox"] {
   <a href="./ch12.html" class="sidebar-item-text sidebar-link">Over de auteur</a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Extra</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Bibliografie</a>
   </div>
 </li>
       </ul>
@@ -194,11 +233,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Inhoudsopgave</h2>
    
   <ul>
-  <li><a href="#mining-pools" id="toc-mining-pools" class="nav-link active" data-scroll-target="#mining-pools"><span class="toc-section-number">7.1</span>  Mining pools</a></li>
-  <li><a href="#aanvallen" id="toc-aanvallen" class="nav-link" data-scroll-target="#aanvallen"><span class="toc-section-number">7.2</span>  51%-aanvallen</a></li>
+  <li><a href="#mining-pools" id="toc-mining-pools" class="nav-link active" data-scroll-target="#mining-pools">Mining pools</a></li>
+  <li><a href="#aanvallen" id="toc-aanvallen" class="nav-link" data-scroll-target="#aanvallen">51%-aanvallen</a></li>
   </ul>
 </nav>
     </div>
@@ -207,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Forks en 51%-aanvallen</span></h1>
 </div>
 
 
@@ -227,8 +266,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Met GPU’s werd minen een heel stuk efficiënter. De moeilijkheidsgraad ging snel omhoog om de grote hoeveelheden <em>hash-rate</em> van de GPU’s bij te benen. Minen met een CPU werd onrendabel.</p>
 <p>Na de komst van GPU mining werd de efficientie van miners nog verhoogd door de product van <em>Application Specific Integrated Circuits</em> (ASIC’s). Deze computerchips doen maar 1 ding: de bitcoin sha256 hash-functie uitvoeren. Ze kunnen enkel dit algoritme en bleken opnieuw een orde van grootte meer efficiënt dan GPU’s. De grafische kaarten voor gamers werden snel onrendabel om te minen, net zoals gebeurde met CPU’s. Iedere paar jaar komt een nieuwe generatie ASIC’s naar buiten die beter werken dan de vorige versies.</p>
 <p>De eerste miners op het netwerk spendeerden slechts enkele centen aan elektriciteit om hun bitcoin te produceren. Terwijl de prijs omhoogging, en meer miners zich aansluiten bij het netwerk, ging de moeilijkheidsgraad van het minen omhoog en werd het duurder en duurder om bitcoins te produceren. Vandaag hangt de prijs rond de $8.000 per BTC en spenderen miners duizenden dollars per geproduceerde bitcoin.</p>
-<section id="mining-pools" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="mining-pools"><span class="header-section-number">7.1</span> Mining pools</h2>
+<section id="mining-pools" class="level2">
+<h2 class="anchored" data-anchor-id="mining-pools">Mining pools</h2>
 <p>Een probleem met bitcoin mining is dat het niet-deterministisch is, zoals het rollen met een dobbelsteen. Dit betekent dat je een grote hoeveelheid geld kunt uitgeven aan elektriciteit en nooit een geldig blok vinden.</p>
 <p>In 2010 werden zogenaamde <em>mining pools</em> al populair om het probleem van variabiliteit te verbeteren. Een <em>mining pool</em> is een manier om het risico te delen, vergelijkbaar met een verzekering.</p>
 <p>Alle miners dragen bij aan een <em>pool</em>. Het lijkt alsof ze 1 grote miner zijn op het netwerk. Wanneer iemand in die <em>pool</em> een geldig blok vindt, wordt de beloning gedeeld met iedereen die bijdroeg, proportioneel verdeelt volgens de <em>hash-rate</em> die ze bijdroegen. Dit stelt ook kleine mining-operaties in staat om beloningen te verdienen voor de kleine hoeveelheid rekenkracht die zij bijdragen. In ruil voor de dienst die zij aanbieden, nemen <em>pool</em> een stukje van de beloning.</p>
@@ -236,8 +275,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Er bestaat historisch precedent voor individuele miners die een <em>pool</em> verlaten omdat die te groot is geworden. In 2014 zat bijna de helft van de rekenkracht op het netwerk bij Ghash.io. De miners zagen in hoe gecentraliseerd dit werd en gingen vrijwillig over op andere diensten.</p>
 <p>Hoewel de relatief gecentraliseerde mining pools vandaag een realiteit zijn, worden constant verbeteringen voorgesteld om de mining-technologie beter te maken, zoals bijvoorbeeld BetterHash. Met deze verbetering zouden individuele miners meer controle hebben over welke transacties ze precies willen minen, zonder hiervoor afhankelijk te zijn van coördinatie van hun <em>mining pool</em>.</p>
 </section>
-<section id="aanvallen" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="aanvallen"><span class="header-section-number">7.2</span> 51%-aanvallen</h2>
+<section id="aanvallen" class="level2">
+<h2 class="anchored" data-anchor-id="aanvallen">51%-aanvallen</h2>
 <p>Centralisatie in <em>mining pools</em> leidt tot bezorgdheid dat enkele van de grote pools zouden kunnen samenspannen om een 51%-aanval uit te voeren op het netwerk. Vandaag hebben de vijf grootste identificeerbare pools meer dan 50% van de totale mining <em>hash-rate</em>. Laat ons onderzoeken hoe zo’n aanval wordt uitgevoerd en welke gevaren eraan verbonden zijn.</p>
 <p>Wanneer je net meer dan 50% van de rekenkracht in handen hebt, kan je de meerderheid van de toevoegingen aan het grootboek domineren. Je kan immers de zwaarste ketting produceren, mits je de aanval even kan volhouden. Herinner je dat Nakamoto Consensus stelt dat <em>nodes</em> altijd de zwaarste cumulative proof-of-work <em>chain</em> moeten accepteren die ze kennen.</p>
 <p>Hier is een voorbeeld van een simpele 51%-aanval:</p>
@@ -405,16 +444,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./ch05.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Het grootboek beveiligen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ch07.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Accounts zonder identiteit</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<div class="page-columns page-rows-contents page-layout-article"><div class="social-share"><a href="https://twitter.com/share?url=https://bitcoinboeken.com/&amp;text=Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands." target="_blank" class="twitter"><i class="fab fa-twitter fa-fw fa-lg"></i></a><a href="https://www.linkedin.com/shareArticle?url=https://bitcoinboeken.com/&amp;title=Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands." target="_blank" class="linkedin"><i class="fa-brands fa-linkedin-in fa-fw fa-lg"></i></a>  <a href="mailto:?subject=Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands.&amp;body=Check out this link:https://bitcoinboeken.com/" target="_blank" class="email"><i class="fa-solid fa-envelope fa-fw fa-lg"></i></a><a href="https://www.facebook.com/sharer.php?u=https://bitcoinboeken.com/" target="_blank" class="facebook"><i class="fab fa-facebook-f fa-fw fa-lg"></i></a><a href="https://reddit.com/submit?url=https://bitcoinboeken.com/&amp;title=Leer over bitcoin met de bekendste boeken over bitcoin in het Nederlands." target="_blank" class="reddit">   <i class="fa-brands fa-reddit-alien fa-fw fa-lg"></i></a></div></div>
 
 
 
